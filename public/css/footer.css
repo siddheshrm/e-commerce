@@ -1,0 +1,16 @@
+:root {
+  --background-color: white;
+  --text-color: black;
+}
+
+.dark-theme {
+  --background-color: black;
+  --text-color: white;
+}
+
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: "cinzel", serif;
+  transition: backgrounf 0.8s, color 0.8s;
+}

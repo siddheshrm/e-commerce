@@ -1,0 +1,9 @@
+.env
+README.md
+server.js
+package.json
+package-lock.json
+Document.pdf
+
+node_modules/
+.vs/
