@@ -1,4 +1,3 @@
-// navbar
 const navbar = document.querySelector(".navbar");
 
 window.addEventListener("scroll", () => {
@@ -13,88 +12,84 @@ const createNavbar = () => {
   let navbar = document.querySelector(".navbar");
 
   navbar.innerHTML += `
-    
-        <ul class="links-container">            
-            <li class="link-item"><a href="/index.html" class="link active"><b>home</b></a></li>
-            <li class="link-item"><a href="/seller.html" class="link"><b>seller</b></a></li>
-            <!-- <li class="link-item"><a href="/aboutus.html" class="link"><b>about us</b></a></li> -->
-        </ul>
-            
-        <div class="user-interactions">
-            <div class="search-box">
-                <input type="text" class="search" placeholder="Search for brands, products and more">
-                <button class="search-btn"><img src="../img/search.png" alt=""></button>
-            </div>
-            <div class="cart" onclick="location.href = '/cart'">
-                <img src="../img/cart.png" class="cart-icon" alt="">
-                <span class="cart-item-count">00</span>
-            </div>
-            <div class="user">
-                <img src="../img/user.png" class="user-icon" alt="">
-                <div class="user-icon-popup">
-                    <p>login to your account</p>
-                    <a>login</a>
-                </div>
-            </div>
+    <ul class="links-container">            
+      <li class="link-item"><a href="/index.html" class="link active"><b>home</b></a></li>
+      <li class="link-item"><a href="/seller.html" class="link"><b>seller</b></a></li>
+      <!-- <li class="link-item"><a href="/aboutus.html" class="link"><b>about us</b></a></li> -->
+    </ul>
+        
+    <div class="user-interactions">
+      <div class="search-box">
+        <input type="text" class="search" placeholder="search for brands, products and more">
+        <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+      <div class="cart" onclick="location.href = '/cart'">
+        <button class="search-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+        <span class="cart-item-count">00</span>
+      </div>
+      <div class="user">
+        <button class="search-btn"><i class="fa-solid fa-user"></i></button>
+        <div class="user-icon-popup">
+          <p>login to your account</p>
+          <a>login</a>
         </div>
-    `;
+      </div>
+    </div>
+  `;
 };
 
-createNavbar();
-// user icon popup
+document.addEventListener("DOMContentLoaded", function () {
+  createNavbar();
 
-let userIcon = document.querySelector(".user-icon");
-let userPopupIcon = document.querySelector(".user-icon-popup");
+  const userIcon = document.querySelector(".user .fa-user");
+  const userPopupIcon = document.querySelector(".user-icon-popup");
 
-userIcon.addEventListener("click", () =>
-  userPopupIcon.classList.toggle("active")
-);
+  userIcon.addEventListener("click", () => {
+    userPopupIcon.classList.toggle("active");
 
-let text = userPopupIcon.querySelector("p");
-let actionBtn = userPopupIcon.querySelector("a");
-let user = JSON.parse(sessionStorage.user || null);
+    const text = userPopupIcon.querySelector("p");
+    const actionBtn = userPopupIcon.querySelector("a");
+    const user = JSON.parse(sessionStorage.getItem("user"));
 
-if (user != null) {
-  // user is logged in
-  text.innerHTML = `hello<br><b>${user.name}</b>`;
-  actionBtn.innerHTML = "log out";
-  actionBtn.addEventListener("click", () => logout());
-} else {
-  text.innerHTML = "login to your account";
-  actionBtn.innerHTML = "login";
-  actionBtn.addEventListener("click", () => (location.href = "/login"));
-}
-
-const logout = () => {
-  sessionStorage.clear();
-  location.reload();
-};
-
-// search box
-let searchBtn = document.querySelector(".search-btn");
-let searchBox = document.querySelector(".search");
-
-searchBtn.addEventListener("click", () => {
-  if (searchBox.value.length) {
-    location.href = `/search/${searchBox.value}`;
-  }
-});
-
-// nav cart count
-const updateNavCartCounter = () => {
-  let cartCounter = document.querySelector(".cart-item-count");
-
-  let cartItem = JSON.parse(localStorage.getItem("cart"));
-
-  if (cartItem == null) {
-    cartCounter.innerHTML = "00";
-  } else {
-    if (cartItem.length > 9) {
-      cartCounter.innerHTML = "9+";
-    } else if (cartItem.length <= 9) {
-      cartCounter.innerHTML = `0${cartItem.length}`;
+    if (user) {
+      // User is logged in
+      text.innerHTML = `Hello<br><b>${user.name}</b>`;
+      actionBtn.innerHTML = "Not you? Log out";
+      actionBtn.addEventListener("click", () => logout());
+    } else {
+      text.innerHTML = "login to your account";
+      actionBtn.innerHTML = "login";
+      actionBtn.addEventListener("click", () => (location.href = "/login"));
     }
-  }
-};
+  });
 
-updateNavCartCounter();
+  const logout = () => {
+    sessionStorage.removeItem("user");
+    location.reload();
+  };
+
+  const searchBtn = document.querySelector(".search-btn");
+  const searchBox = document.querySelector(".search");
+
+  searchBtn.addEventListener("click", () => {
+    if (searchBox.value.trim().length > 0) {
+      location.href = `/search/${encodeURIComponent(searchBox.value.trim())}`;
+    }
+  });
+
+  const updateNavCartCounter = () => {
+    const cartCounter = document.querySelector(".cart-item-count");
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (cartItems.length === 0) {
+      cartCounter.textContent = "00";
+    } else if (cartItems.length > 9) {
+      cartCounter.textContent = "9+";
+    } else {
+      cartCounter.textContent =
+        cartItems.length < 10 ? `0${cartItems.length}` : cartItems.length;
+    }
+  };
+
+  updateNavCartCounter();
+});

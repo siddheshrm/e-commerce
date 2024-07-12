@@ -1,9 +1,18 @@
+const loadFontAwesome = () => {
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href =
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css";
+  document.head.appendChild(link);
+};
+
 const createFooter = () => {
+  loadFontAwesome();
+
   let footer = document.querySelector("footer");
 
   footer.innerHTML = `
       <div class="footer-content">
-          <!-- <img href="#" src="../img/furniture-logo-white-bg.gif" class="logo" alt="logo"> -->
           <p class="footer-title">About furniture.com</p>
           <p class="footer-info">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit."</p>
@@ -15,9 +24,9 @@ const createFooter = () => {
                   <a href="#" class="social-link"><b>Privacy Page</b></a>
               </div>
               <div>
-                  <a href="https://www.facebook.com/login/" class="social-link" target="_blank"><img src="../img/facebook.png" width="50"></a>
-                  <a href="https://www.instagram.com/" class="social-link" target="_blank"><img src="../img/instagram.png" width="50"></a>
-                  <a href="https://twitter.com/" class="social-link" target="_blank"><img src="../img/twitter.png" width="50"></a>
+                  <a href="https://www.facebook.com/login/" class="social-link" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                  <a href="https://www.instagram.com/" class="social-link" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="https://twitter.com/" class="social-link" target="_blank"><i class="fa-brands fa-twitter"></i></a>
               </div>
           </div>
       </div>
