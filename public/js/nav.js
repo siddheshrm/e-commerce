@@ -17,7 +17,7 @@ const createNavbar = () => {
         <ul class="links-container">            
             <li class="link-item"><a href="/index.html" class="link active"><b>home</b></a></li>
             <li class="link-item"><a href="/seller.html" class="link"><b>seller</b></a></li>
-            <li class="link-item"><a href="/aboutus.html" class="link active"><b>about us</b></a></li>
+            <!-- <li class="link-item"><a href="/aboutus.html" class="link"><b>about us</b></a></li> -->
         </ul>
             
         <div class="user-interactions">
@@ -56,7 +56,7 @@ let user = JSON.parse(sessionStorage.user || null);
 
 if (user != null) {
   // user is logged in
-  text.innerHTML = `logged in as, ${user.name}`;
+  text.innerHTML = `hello<br><b>${user.name}</b>`;
   actionBtn.innerHTML = "log out";
   actionBtn.addEventListener("click", () => logout());
 } else {

@@ -1,7 +1,8 @@
+/* Cart Page Specific CSS */
 .cart-section {
-  margin-top: 100px;
+  margin-top: 50px;
   width: 100%;
-  padding: 20px 10vw;
+  padding: 40px ;
   display: flex;
   justify-content: space-between;
   gap: 20px;
@@ -23,8 +24,7 @@
   padding: 20px;
   border-radius: 5px;
   border: 1px solid #d8d8d8;
-  margin-bottom: 60px;
-  font-family: "lato", sans-serif;
+  font-family: "Playwrite PE", cursive;
 }
 
 .empty-img {
@@ -132,7 +132,6 @@
 
 .checkout-box {
   width: 100%;
-  height: 200px;
   border-radius: 2px;
   border: 1px solid #d8d8d8;
   padding: 20px;
@@ -153,7 +152,6 @@
   height: 40px;
   border-radius: 5px;
   background: #1d1d1d;
-  color: #fff;
   color: #fff;
   text-align: center;
   line-height: 40px;

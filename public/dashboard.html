@@ -10,35 +10,38 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Lato&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Lato&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+PE:wght@100..400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/dashboard.css">
-
 </head>
 
 <body>
+    <nav class="navbar"></nav>
 
-    <img src="../img/loading.gif" class="loader" alt="">
+    <img src="../img/loading.gif" class="loader" alt="Loading">
 
-    <div class="add-product">
-        <p class="text" id="seller-greeting">Hello, </p>
-        <a href="/add-product.html" class="add-product-btn">add product</a>
+    <div class="content-wrapper">
+        <div class="add-product">
+            <p class="text" id="seller-greeting">hello</p>
+            <a href="/add-product.html" class="add-product-btn">add new product</a>
+        </div>
+
+        <img src="img/no-product.png" class="no-product" alt="No product available">
+
+        <section class="seller-products">
+            <div class="product-container"></div>
+        </section>
     </div>
 
-    <img src="img/no product.png" class="no-product" alt="">
-
-    <section class="seller-products">
-        <div class="product-container">
-        </div>
-    </section>
-
     <footer></footer>
+
+    <script src="js/nav.js"></script>
     <script src="js/createProduct.js"></script>
     <script src="js/home.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/dashboard.js"></script>
     <script src="js/footer.js"></script>
-
 </body>
 
 </html>

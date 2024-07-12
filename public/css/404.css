@@ -18,7 +18,8 @@
 .sub-line {
   font-size: 25px;
   text-align: center;
-  font-family: "Lato", sans-serif;
+  /* font-family: "Lato", sans-serif; */
+  font-family: "Playwrite PE", cursive;  
   text-transform: capitalize;
 }
 

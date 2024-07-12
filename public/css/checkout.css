@@ -4,17 +4,21 @@ body {
 
 .form {
   width: 100%;
-  padding: 30px 10vw;
+  padding: 30px 20vw;
 }
 
 .form input {
-  background-color: grey;
+  background-color: rgb(249, 249, 249);
   margin: 10px 0;
 }
 
 .three-input-container {
   display: flex;
   gap: 20px;
+}
+
+.three-input-container input {
+  flex: 1;
 }
 
 .cart-section {

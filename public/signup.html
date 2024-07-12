@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" href="/img/furniture-logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+PE:wght@100..400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/form.css">
 </head>
@@ -22,24 +22,26 @@
     <section class="form-section">
         <div class="form-container">
             <div class="form">
-                <h1 class="form-heading">new here?</h1>
-                <h1 class="form-heading">sign up</h1>
-                <input type="text" autocomplete="off" id="name" placeholder="full name">
-                <input type="email" autocomplete="off" id="email" placeholder="email">
-                <input type="password" autocomplete="off" id="password" placeholder="password">
-                <input type="number" autocomplete="off" id="number" placeholder="phone number">
-                <span class="error">**this is an error</span>
+                <h1 class="form-heading">New here? Sign up</h1>
+
+                <input type="text" autocomplete="off" id="name" placeholder="Full Name">
+                <input type="email" autocomplete="off" id="email" placeholder="Email">
+                <input type="password" autocomplete="off" id="password" placeholder="Password">
+                <input type="tel" autocomplete="off" id="number" placeholder="Phone Number">
+
+                <span class="error">**There is an error</span>
 
                 <div>
-                    <input type="checkbox" id="tc"><label for="tc" class="tc-text">You agree to our <a href="#">terms
-                            and conditions</a></label>
+                    <input type="checkbox" id="tc">
+                    <label for="tc" class="tc-text">You agree to our <a href="#"><br>terms and conditions</a></label>
                 </div>
+
                 <button class="submit-btn">Sign up</button>
-                <a href="/login" class="other-form-link">Already have an account? Log in here</a>
+
+                <label for="tc" class="tc-text">Already have an account?<br><a href="/login">Log in here</a></label>
             </div>
             <img src="img/furniture-logo.gif" class="form-img" alt="">
         </div>
-
     </section>
 
     <footer></footer>

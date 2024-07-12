@@ -10,8 +10,8 @@
     <link rel="icon" type="image/png" href="/img/furniture-logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Lato&display=swap" rel="stylesheet">
-
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Lato&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+PE:wght@100..400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/product.css">
     <link rel="stylesheet" href="css/add-product.css">
@@ -19,9 +19,12 @@
 
 <body>
 
+    <!-- navbar -->
+    <nav class="navbar"></nav>
+
     <div>
         <img src="../img/loading.gif" class="loader" alt="">
-        <h1 class="title">Add product</h1>
+        <h1 class="title">Add new product</h1>
     </div>
 
     <div class="error">
@@ -43,6 +46,7 @@
             <p class="price" contenteditable="true" data-placeholder="price in ₹"></p>
         </div>
     </section>
+
     <section class="detail-des">
         <h1 class="section-title">details</h1>
         <p class="des" contenteditable="true" data-placeholder="Product specifications"></p>
@@ -61,6 +65,8 @@
     </div>
 
     <footer></footer>
+
+    <script src="../js/nav.js"></script>
     <script src="../js/add-product.js"></script>
     <script src="../js/home.js"></script>
     <script src="../js/cart.js"></script>

@@ -9,7 +9,8 @@ body {
   height: 100vh;
   display: flex;
   background: white;
-  font-family: "Lato", sans-serif;
+  /* font-family: "Lato", sans-serif; */
+  font-family: "Playwrite PE", cursive;
 }
 
 .seller-img {
@@ -48,7 +49,8 @@ textarea {
 
 textarea {
   height: 8rem;
-  font-family: "Lato", sans-serif;
+  /* font-family: "Lato", sans-serif; */
+  font-family: "Playwrite PE", cursive;
   resize: none;
   outline: none;
 }
@@ -63,5 +65,6 @@ textarea {
   color: white;
   margin-top: 20px;
   cursor: pointer;
-  font-family: "Cinzel";
+  /* font-family: "Cinzel"; */
+  font-family: "Playwrite PE", cursive;
 }

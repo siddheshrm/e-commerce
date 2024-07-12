@@ -1,5 +1,12 @@
 body {
   padding: 100px 0;
+  background: url('../img/furniture.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .loader {
@@ -31,7 +38,8 @@ body {
   background: white;
   border-radius: 10px;
   padding: 20px;
-  font-family: "Lato", sans-serif;
+  /* font-family: "Lato", sans-serif; */
+  font-family: "Playwrite PE", cursive;
   transition: 0.5s;
   font-size: 1rem;
   line-height: 1.2rem;
@@ -75,7 +83,8 @@ body {
   align-items: center;
   color: white;
   font-size: 2rem;
-  font-family: "Lato", sans-serif;
+  /* font-family: "Lato", sans-serif; */
+  font-family: "Playwrite PE", cursive;
   text-transform: capitalize;
   opacity: 0;
   transition: 0.5s;
@@ -120,7 +129,8 @@ body {
 }
 
 .text {
-  font-family: "Lato", sans-serif;
+  /* font-family: "Lato", sans-serif; */
+  font-family: "Playwrite PE", cursive;
   text-transform: capitalize;
   font-size: 1.1rem;
   line-height: 2rem;
@@ -130,7 +140,8 @@ body {
 .tags {
   height: 100px;
   margin: 20px 0;
-  font-family: "Lato", sans-serif;
+  /* font-family: "Lato", sans-serif; */
+  font-family: "Playwrite PE", cursive;
 }
 
 .btn-wrapper {

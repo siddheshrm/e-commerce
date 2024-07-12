@@ -19,7 +19,8 @@
 
 .product-price {
   position: absolute;
-  font-family: "lato", sans-serif;
+  /* font-family: "lato", sans-serif; */
+  font-family: "Playwrite PE", cursive;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
