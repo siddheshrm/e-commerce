@@ -14,8 +14,7 @@ const createFooter = () => {
   footer.innerHTML = `
       <div class="footer-content">
           <p class="footer-title">About furniture.com</p>
-          <p class="footer-info">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit."</p>
+          <p class="footer-info" style="font-size: 25px;">At Furniture.com, we believe in transforming houses into homes with our unique and high-quality furniture. Our collection ranges from contemporary to classic designs, ensuring there's something for every taste and style. With a commitment to sustainability and customer satisfaction, we aim to provide furniture that not only looks great but also stands the test of time. Explore our curated selections and find the perfect pieces to elevate your living spaces.</p>
           <p class="footer-info"><b>Write us at -</b> help@furniture.com, customersupport@furniture.com</p>
           <p class="footer-info"><b>Telephone -</b> 180 00 00 001, 180 00 00 002</p>
           <div class="footer-social-container">

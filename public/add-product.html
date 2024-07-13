@@ -12,9 +12,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Lato&display=swap" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+PE:wght@100..400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/product.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/add-product.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
@@ -35,15 +36,15 @@
         <!--upload image-->
         <div class="image-upload-container">
             <input type="file" id="upload-image" accept="image/png,image/jpeg" hidden>
-            <label for="upload-image" class="upload-overlay">Upload image</label>
-            <img class="product-img">
+            <label for="upload-image" class="upload-overlay">Upload product image</label>
+            <img class="product-img" style="border: 2px solid #000000;">
         </div>
 
         <div class="product-detail">
-            <h1 class="product-title" contenteditable="true" data-placeholder="name of the product">premium sofa</h1>
-            <p class="product-des" contenteditable="true" data-placeholder="short description">Lorem ipsum dolor sit
-                amet, consectetur adipisicing elit. Officia porro fugit adipisci nemo placeat? Deserunt.</p>
+            <p class="product-title" contenteditable="true" data-placeholder="name of the product"></p>
+            <p class="product-des" contenteditable="true" data-placeholder="short product description"></p>
             <p class="price" contenteditable="true" data-placeholder="price in ₹"></p>
+            <p class="tags" contenteditable="true" data-placeholder="Add multiple tags separated by comma"></p>
         </div>
     </section>
 
@@ -52,19 +53,12 @@
         <p class="des" contenteditable="true" data-placeholder="Product specifications"></p>
     </section>
 
-    <section class="tags-section">
-        <h1 class="section-title">tags</h1>
-        <p class="text">enter some tags related to the product that will help in searching the product</p>
-        <p class="tags" contenteditable="true" data-placeholder="Add multiple tags separated by comma">3 tags atleast
-        </p>
-    </section>
-
     <div class="btn-wrapper">
         <button class="product-btn add-product-btn">add product</button>
         <button class="product-btn draft-btn">save draft</button>
     </div>
 
-    <footer></footer>
+    <footer id="footer"></footer>
 
     <script src="../js/nav.js"></script>
     <script src="../js/add-product.js"></script>

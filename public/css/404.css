@@ -19,10 +19,14 @@
   font-size: 25px;
   text-align: center;
   /* font-family: "Lato", sans-serif; */
-  font-family: "Playwrite PE", cursive;  
-  text-transform: capitalize;
+  font-family: "Playwrite PE", cursive;
 }
 
 .sub-line a {
-  color: white;
+  color: #000;
+  text-decoration: none;
+}
+
+.sub-line a:hover {
+  text-decoration: underline;
 }

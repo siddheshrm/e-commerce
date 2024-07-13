@@ -13,9 +13,9 @@ const createNavbar = () => {
 
   navbar.innerHTML += `
     <ul class="links-container">            
-      <li class="link-item"><a href="/index.html" class="link active"><b>home</b></a></li>
+      <li class="link-item"><a href="${getHomeLink()}" class="link active"><b>home</b></a></li>
       <li class="link-item"><a href="/seller.html" class="link"><b>seller</b></a></li>
-      <!-- <li class="link-item"><a href="/aboutus.html" class="link"><b>about us</b></a></li> -->
+      <li class="link-item"><a href="#footer" class="link"><b>about us</b></a></li>
     </ul>
         
     <div class="user-interactions">
@@ -30,12 +30,19 @@ const createNavbar = () => {
       <div class="user">
         <button class="search-btn"><i class="fa-solid fa-user"></i></button>
         <div class="user-icon-popup">
-          <p>login to your account</p>
+          <p>already have an account?</p>
           <a>login</a>
         </div>
       </div>
     </div>
   `;
+};
+
+const getHomeLink = () => {
+  // Check if current page is index.html or the root directory
+  return location.pathname === "/" || location.pathname === "/index.html"
+    ? "#"
+    : "/index.html";
 };
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -92,4 +99,16 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   updateNavCartCounter();
+
+  // Smooth scroll for specific links
+  document.querySelectorAll(".link").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const targetId = e.target.getAttribute("href").substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
 });
