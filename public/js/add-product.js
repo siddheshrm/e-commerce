@@ -1,242 +1,56 @@
-let user = JSON.parse(sessionStorage.user || null);
+let user = JSON.parse(sessionStorage.user || "{}");
 
 window.onload = () => {
-  if (user == null) {
+  if (!user || Object.keys(user).length === 0) {
     location.replace("/login");
   }
 };
 
 let editables = [...document.querySelectorAll('*[contenteditable="true"]')];
 
-editables.map((element) => {
+editables.forEach((element) => {
   let placeholder = element.getAttribute("data-placeholder");
-  element.innerHTML = placeholder;
+  element.innerText = placeholder;
   element.addEventListener("focus", () => {
-    if (element.innerHTML === placeholder) {
-      element.innerHTML = "";
+    if (element.innerText === placeholder) {
+      element.innerText = "";
     }
   });
   element.addEventListener("focusout", () => {
-    if (!element.innerHTML.length) {
-      element.innerHTML = placeholder;
+    if (!element.innerText.length) {
+      element.innerText = placeholder;
     }
   });
-  let user = JSON.parse(sessionStorage.user || null);
-
-  window.onload = () => {
-    if (user == null) {
-      location.replace("/login");
-    }
-  };
-
-  let editables = [...document.querySelectorAll('*[contenteditable="true"]')];
-
-  editables.map((element) => {
-    let placeholder = element.getAttribute("data-placeholder");
-    element.innerHTML = placeholder;
-    element.addEventListener("focus", () => {
-      if (element.innerHTML === placeholder) {
-        element.innerHTML = "";
-      }
-    });
-    element.addEventListener("focusout", () => {
-      if (!element.innerHTML.length) {
-        element.innerHTML = placeholder;
-      }
-    });
-  });
-
-  //image upload
-  let uploadInput = document.querySelector("#upload-image");
-  let imagePath = "img/noImage.png"; //default image
-
-  uploadInput.addEventListener("change", () => {
-    const file = uploadInput.files[0];
-    let imageUrl;
-
-    if (file.type.includes("image")) {
-      //means its an image
-      fetch("/s3url")
-        .then((res) => res.json())
-        .then((url) => {
-          fetch(url, {
-            method: "PUT",
-            headers: new Headers({ "Content-Type": "image/jpeg" }),
-            // headers: new Headers({ "Content-Type": "multipart/form-data" }),
-            body: file,
-          }).then((res) => {
-            imagePath = url.split("?")[0];
-
-            let productImage = document.querySelector(".product-img");
-            productImage.src = imagePath;
-          });
-        });
-    }
-  });
-
-  //form submision
-  let addProductBtn = document.querySelector(".add-product-btn");
-  let loader = document.querySelector(".loader");
-
-  let productName = document.querySelector(".product-title");
-  let shortDes = document.querySelector(".product-des");
-  let price = document.querySelector(".price");
-  let detail = document.querySelector(".des");
-  let tags = document.querySelector(".tags");
-
-  addProductBtn.addEventListener("click", () => {
-    //verification
-    if (productName.innerHTML == productName.getAttribute("data-placeholder")) {
-      showFormError("should enter product name");
-    } else if (
-      shortDes.innerHTML == shortDes.getAttribute("data-placeholder")
-    ) {
-      showFormError("description must be 80 letter long");
-    } else if (
-      price.innerHTML == price.getAttribute("data-placeholder") ||
-      !Number(price.innerHTML)
-    ) {
-      showFormError("enter valid price");
-    } else if (
-      detail.innerHTML == detail.getAttribute("data-placeholder") ||
-      !Number(price.innerHTML)
-    ) {
-      showFormError("must enter the details");
-    } else if (
-      tags.innerHTML == tags.getAttribute("data-placeholder") ||
-      !Number(price.innerHTML)
-    ) {
-      showFormError("enter tags");
-    } else {
-      //submit form
-      loader.style.display = "block";
-      let data = productData();
-      if (productId) {
-        data.id = productId;
-      }
-      sendData("/add-product", data);
-    }
-  });
-
-  const productData = () => {
-    let tagsArr = tags.innerText.split(",");
-    tagsArr.forEach((item, i) => tagsArr[i].trim().toLowerCase());
-
-    return {
-      name: productName.innerText,
-      shortDes: shortDes.innerText,
-      price: price.innerText,
-      detail: detail.innerText,
-      tags: tagsArr,
-      image: imagePath,
-      email: JSON.parse(sessionStorage.user).email,
-      draft: false,
-    };
-  };
-
-  // draft btn
-  let draftBtn = document.querySelector(".draft-btn");
-
-  draftBtn.addEventListener("click", () => {
-    if (
-      !productName.innerHTML.length ||
-      productName.innerHTML == productName.getAttribute("data-placeholder")
-    ) {
-      showFormError("enter product name atleast");
-    } else {
-      // don't validate the form
-      let data = productData();
-      loader.style.dispaly = "block";
-      data.draft = true;
-      if (productId) {
-        data.id = productId;
-      }
-      sendData("/add-product", data);
-    }
-  });
-
-  // edit page
-
-  const fetchProductData = () => {
-    addProductBtn.innerHTML = "save product";
-    fetch("/get-products", {
-      method: "post",
-      headers: new Headers({ "Content-Type": "application/json" }),
-      body: JSON.stringify({ id: productId }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setFormData(data);
-        //  console.log(data);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  const setFormData = (data) => {
-    productName.innerHTML = data.name;
-    shortDes.innerHTML = data.shortDes;
-    price.innerHTML = data.price;
-    detail.innerHTML = data.detail;
-    tags.innerHTML = data.tags;
-
-    let productImg = document.querySelector(".product-img");
-    productImg.src = imagePath = data.image;
-  };
-
-  let productId = null;
-  if (location.pathname != "/add-product") {
-    productId = decodeURI(location.pathname.split("/").pop());
-    fetchProductData();
-  }
 });
 
-//image upload
+// image upload
 let uploadInput = document.querySelector("#upload-image");
-let imagePath = "img/noImage.png"; //default image
+let imagePath = "img/noImage.png"; // default image
 
-uploadInput.addEventListener("change", async () => {
+uploadInput.addEventListener("change", () => {
   const file = uploadInput.files[0];
   let imageUrl;
 
-  if (file.type.includes("image")) {
-    try {
-      // Fetch the signed URL from your backend
-      const response = await fetch("/s3url");
-      if (!response.ok) {
-        throw new Error(
-          `Failed to fetch S3 URL: ${response.status} ${response.statusText}`
-        );
-      }
+  if (file && file.type.includes("image")) {
+    // means it's an image
+    fetch("/s3url")
+      .then((res) => res.json())
+      .then((url) => {
+        fetch(url, {
+          method: "PUT",
+          headers: new Headers({ "Content-Type": "image/jpeg" }),
+          body: file,
+        }).then((res) => {
+          imagePath = url.split("?")[0];
 
-      const url = await response.json();
-
-      // Upload the file to S3
-      const uploadResponse = await fetch(url, {
-        method: "PUT",
-        headers: new Headers({ "Content-Type": "image/jpeg" }),
-        body: file,
+          let productImage = document.querySelector(".product-img");
+          productImage.src = imagePath;
+        });
       });
-
-      if (!uploadResponse.ok) {
-        throw new Error(
-          `Failed to upload image: ${uploadResponse.status} ${uploadResponse.statusText}`
-        );
-      }
-
-      imagePath = url.split("?")[0];
-
-      // Update the product image source
-      let productImage = document.querySelector(".product-img");
-      productImage.src = imagePath;
-    } catch (error) {
-      console.error("Error uploading image:", error);
-    }
-  } else {
-    console.error("Selected file is not an image.");
   }
 });
 
-//form submision
+// form submission
 let addProductBtn = document.querySelector(".add-product-btn");
 let loader = document.querySelector(".loader");
 
@@ -247,28 +61,38 @@ let detail = document.querySelector(".des");
 let tags = document.querySelector(".tags");
 
 addProductBtn.addEventListener("click", () => {
-  //verification
-  if (productName.innerHTML == productName.getAttribute("data-placeholder")) {
-    showFormError("should enter product name");
-  } else if (shortDes.innerHTML == shortDes.getAttribute("data-placeholder")) {
-    showFormError("description must be 80 letter long");
+  // verification
+  if (imagePath === "img/noImage.png") {
+    showFormError("Please upload a product image");
   } else if (
-    price.innerHTML == price.getAttribute("data-placeholder") ||
-    !Number(price.innerHTML)
+    productName.innerText == productName.getAttribute("data-placeholder") ||
+    productName.innerText.length < 5
   ) {
-    showFormError("enter valid price");
+    showFormError("Product name must be at least 5 characters long");
   } else if (
-    detail.innerHTML == detail.getAttribute("data-placeholder") ||
-    !Number(price.innerHTML)
+    shortDes.innerText == shortDes.getAttribute("data-placeholder") ||
+    shortDes.innerText.length < 20
   ) {
-    showFormError("must enter the details");
+    showFormError("Product description must be at least 20 characters long");
   } else if (
-    tags.innerHTML == tags.getAttribute("data-placeholder") ||
-    !Number(price.innerHTML)
+    price.innerText == price.getAttribute("data-placeholder") ||
+    isNaN(price.innerText)
   ) {
-    showFormError("enter tags");
+    showFormError("Please enter a valid price");
+  } else if (
+    detail.innerText == detail.getAttribute("data-placeholder") ||
+    detail.innerText.length < 50
+  ) {
+    showFormError("Product details must be at least 50 characters long");
+  } else if (
+    tags.innerText == tags.getAttribute("data-placeholder") ||
+    tags.innerText.split(",").length < 3
+  ) {
+    showFormError(
+      "Please enter at least 3 product tags for better search results"
+    );
   } else {
-    //submit form
+    // submit form
     loader.style.display = "block";
     let data = productData();
     if (productId) {
@@ -279,8 +103,9 @@ addProductBtn.addEventListener("click", () => {
 });
 
 const productData = () => {
-  let tagsArr = tags.innerText.split(",");
-  tagsArr.forEach((item, i) => tagsArr[i].trim().toLowerCase());
+  let tagsArr = tags.innerText
+    .split(",")
+    .map((item) => item.trim().toLowerCase());
 
   return {
     name: productName.innerText,
@@ -289,24 +114,23 @@ const productData = () => {
     detail: detail.innerText,
     tags: tagsArr,
     image: imagePath,
-    email: JSON.parse(sessionStorage.user).email,
+    email: user.email,
     draft: false,
   };
 };
 
-// draft btn
 let draftBtn = document.querySelector(".draft-btn");
 
 draftBtn.addEventListener("click", () => {
   if (
-    !productName.innerHTML.length ||
-    productName.innerHTML == productName.getAttribute("data-placeholder")
+    productName.innerText == productName.getAttribute("data-placeholder") ||
+    productName.innerText.length < 5
   ) {
-    showFormError("enter product name atleast");
+    showFormError("Product name must be at least 5 characters long");
   } else {
     // don't validate the form
     let data = productData();
-    loader.style.dispaly = "block";
+    loader.style.display = "block";
     data.draft = true;
     if (productId) {
       data.id = productId;
@@ -316,9 +140,8 @@ draftBtn.addEventListener("click", () => {
 });
 
 // edit page
-
 const fetchProductData = () => {
-  addProductBtn.innerHTML = "save product";
+  addProductBtn.innerText = "Save Product";
   fetch("/get-products", {
     method: "post",
     headers: new Headers({ "Content-Type": "application/json" }),
@@ -333,11 +156,11 @@ const fetchProductData = () => {
 };
 
 const setFormData = (data) => {
-  productName.innerHTML = data.name;
-  shortDes.innerHTML = data.shortDes;
-  price.innerHTML = data.price;
-  detail.innerHTML = data.detail;
-  tags.innerHTML = data.tags;
+  productName.innerText = data.name;
+  shortDes.innerText = data.shortDes;
+  price.innerText = data.price;
+  detail.innerText = data.detail;
+  tags.innerText = data.tags;
 
   let productImg = document.querySelector(".product-img");
   productImg.src = imagePath = data.image;

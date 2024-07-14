@@ -3,6 +3,7 @@ README.md
 package.json
 package-lock.json
 Document.pdf
+product.txt
 
 node_modules/
 .vs/

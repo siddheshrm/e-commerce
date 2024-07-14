@@ -24,7 +24,7 @@ const setupProducts = () => {
     .then((res) => res.json())
     .then((data) => {
       loader.style.display = "none";
-      console.log(data);
+      // console.log(data);
       if (data === "no products" || data.length === 0) {
         noProductMessage.classList.add("active");
       } else {
