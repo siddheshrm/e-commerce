@@ -81,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
+  // search box
   const searchBtn = document.querySelector(".search-btn");
   const searchBox = document.querySelector(".search");
 
