@@ -79,7 +79,7 @@ input:focus {
 }
 
 .error {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: red;
   margin: 5px 0;
   font-family: "Playwrite PE", cursive;
@@ -88,7 +88,7 @@ input:focus {
 }
 
 .error.show {
-  opacity: 1;
+  opacity: 2;
 }
 
 .submit-btn {
@@ -110,4 +110,14 @@ input:focus {
   color: #000;
   font-size: 1rem;
   text-decoration: none;
+}
+
+#tc {
+  height: 15px;
+  width: 15px;
+  cursor: pointer;
+}
+
+#tc:checked {
+  background: #b9b9b9;
 }

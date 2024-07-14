@@ -1,3 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  background: url("../img/wooden_table.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Playwrite PE", cursive;
+  padding-top: 100px;
+}
+
 .product-section {
   width: 100%;
   margin-top: 120px;
@@ -13,16 +27,15 @@
 }
 
 .product-title {
-  font-size: 60px;
+  font-size: 3rem;
 }
 
 .product-des {
   text-transform: capitalize;
   margin: 30px 0;
-  /* font-family: "Lato", sans-serif; */
   font-family: "Playwrite PE", cursive;
   opacity: 0.5;
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 30px;
 }
 
@@ -33,10 +46,10 @@
 .rating .star {
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 
 .rating-count {
-  /* font-family: "Lato", sans-serif; */
   font-family: "Playwrite PE", cursive;
   opacity: 0.4;
   font-size: 14px;
@@ -45,8 +58,8 @@
 }
 
 .price {
-  font-size: 60px;
-  margin: 30px 0;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
 }
 
 .product-btn {
@@ -68,20 +81,27 @@
   background-color: #190c05;
 }
 
+.best-selling-product-section {
+  padding: 100px;
+}
+
 .detail-des,
 .review-section,
 .add-review-section {
   width: 100%;
-  padding: 100px 5vw 0;
+  padding: 100px 100px 0 100px;
 }
 
 .des {
-  white-space: pre-wrap;
-  /* font-family: "Lato", sans-serif; */
   font-family: "Playwrite PE", cursive;
-  line-height: 30px;
-  font-size: 20px;
-  opacity: 0.5;
+  line-height: 2rem;
+  font-size: 1.25rem;
+  opacity: 0.75;
+}
+
+.review-container {
+  display: flex;
+  margin: 0;
 }
 
 .review-headline,
@@ -92,11 +112,11 @@
   margin: 10px 0;
   padding: 10px;
   line-height: 40px;
-  /* font-family: "Lato", sans-serif; */
   font-family: "Playwrite PE", cursive;
   color: black;
   outline: none;
   text-transform: capitalize;
+  font-size: 1rem;
 }
 
 ::placeholder {
@@ -120,17 +140,10 @@
 }
 
 .rating-text {
-  /* font-family: "Lato", sans-serif; */
   font-family: "Playwrite PE", cursive;
-  color: #c9c9c9;
-  text-transform: uppercase;
+  color: #000000;
   margin: 10px 0;
-}
-
-.rating-star {
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
+  font-size: 1.25rem;
 }
 
 .add-review-btn {
@@ -139,10 +152,8 @@
   background: #d5be8b;
   padding: 10px 20px;
   color: white;
-  /* font-family: "Lato", sans-serif; */
   font-family: "Playwrite PE", cursive;
   font-size: 16px;
   text-transform: capitalize;
-  margin-top: 30px;
   cursor: pointer;
 }

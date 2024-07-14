@@ -175,12 +175,21 @@
   display: block;
 }
 
-.user-icon-popup a {
+.user-icon-popup button.logout-btn {
+  font-family: "Playwrite PE", cursive;
   display: block;
-  color: #000;
-  text-decoration: none;
+  width: 100%;
+  background: #ff004f;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
-.user-icon-popup a:hover {
-  background: #f0f0f0;
+.user-icon-popup button.logout-btn:hover {
+  background: #d00042;
 }

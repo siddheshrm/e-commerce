@@ -9,7 +9,6 @@ body {
   height: 100vh;
   display: flex;
   background: white;
-  /* font-family: "Lato", sans-serif; */
   font-family: "Playwrite PE", cursive;
 }
 
@@ -30,13 +29,13 @@ body {
 
 .form-title {
   font-size: 1.8rem;
-  color: #d5be8b;
-  text-transform: capitalize;
+  color: #000000;
   margin-bottom: 40px;
 }
 
 input,
 textarea {
+  font-family: "Playwrite PE", cursive;
   width: 70%;
   border: 1px solid #cccccc;
   border-radius: 5px;
