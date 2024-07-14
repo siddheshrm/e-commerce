@@ -17,7 +17,7 @@ const createProduct = (data) => {
         <button class="btn open-btn" onclick="location.href = '/products/${data.id}'"><img src="img/open.png" alt=""></button>
         <button class="btn delete-btn" onclick="deleteItem('${data.id}')"><img src="img/delete.png" alt=""></button>
         <img src="${data.image}" class="product-img" alt="">
-        <p class="product-name">${data.tags[0]} →</p>
+        <p class="product-name">${data.tags[0]}</p>
     </div>
   `;
 };

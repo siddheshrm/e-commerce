@@ -204,6 +204,7 @@ app.get("/add-product", (req, res) => {
   res.sendFile("add-product.html", { root: "public" });
 });
 
+// edit product
 app.get("/add-product/:id", (req, res) => {
   res.sendFile("add-product.html", { root: "public" });
 });
@@ -226,8 +227,7 @@ app.post("/add-product", (req, res) => {
     }
   }
 
-  // add-product
-
+  // add or update product
   let docName =
     id == undefined
       ? `${name.toLowerCase()}-${Math.floor(Math.random() * 50000)}`
@@ -290,10 +290,12 @@ app.post("/delete-product", (req, res) => {
     });
 });
 
+// product page route by id
 app.get("/products/:id", (req, res) => {
   res.sendFile("product.html", { root: "public" });
 });
 
+// serach route
 app.get("/search/:key", (req, res) => {
   res.sendFile("search.html", { root: "public" });
 });

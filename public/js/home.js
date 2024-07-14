@@ -60,8 +60,8 @@ const createCards = (data) => {
 
   return cards;
 };
-//cart function
 
+//cart function
 const add_product_to_cart = (product) => {
   updateNavCartCounter();
   let cart = JSON.parse(localStorage.getItem("cart"));

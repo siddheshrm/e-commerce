@@ -12,7 +12,7 @@ ratingStarInput.map((star, index) => {
   });
 });
 
-// product page setting
+// product page
 let productName = document.querySelector(".product-title");
 let shortDes = document.querySelector(".product-des");
 let price = document.querySelector(".price");
@@ -52,7 +52,7 @@ const fetchProductData = () => {
       getProducts(data.tags[0]).then((res) =>
         createProductCards(
           res,
-          "similar products",
+          "Similar Products",
           ".best-selling-product-section"
         )
       );

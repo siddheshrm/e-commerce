@@ -123,8 +123,8 @@ let draftBtn = document.querySelector(".draft-btn");
 
 draftBtn.addEventListener("click", () => {
   if (
-    productName.innerText == productName.getAttribute("data-placeholder") ||
-    productName.innerText.length < 5
+    !productName.innerHTML.length ||
+    productName.innerHTML == productName.getAttribute("data-placeholder")
   ) {
     showFormError("Product name must be at least 5 characters long");
   } else {
@@ -140,6 +140,7 @@ draftBtn.addEventListener("click", () => {
 });
 
 // edit page
+
 const fetchProductData = () => {
   addProductBtn.innerText = "Save Product";
   fetch("/get-products", {
