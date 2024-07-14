@@ -24,7 +24,6 @@ const setupProducts = () => {
     .then((res) => res.json())
     .then((data) => {
       loader.style.display = "none";
-      // console.log(data);
       if (data === "no products" || data.length === 0) {
         noProductMessage.classList.add("active");
       } else {
@@ -33,7 +32,7 @@ const setupProducts = () => {
     })
     .catch((error) => {
       loader.style.display = "none";
-      console.error("Error fetching products:", error);
+      // console.error("Error fetching products:", error);
       noProductMessage.textContent =
         "An error occurred while fetching products.";
       noProductMessage.classList.add("active");

@@ -285,7 +285,8 @@ app.post("/delete-product", (req, res) => {
       res.json("success");
     })
     .catch((err) => {
-      res.json("err");
+      // console.error("Error deleting product:", err);
+      res.json("error");
     });
 });
 
@@ -321,7 +322,7 @@ app.post("/add-review", (req, res) => {
       return res.json("review");
     })
     .catch((err) => {
-      console.log(err);
+      // console.log(err);
       res.json({ alert: "some err occured" });
     });
 });
