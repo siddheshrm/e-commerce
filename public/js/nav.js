@@ -31,7 +31,7 @@ const createNavbar = () => {
         <button class="search-btn"><i class="fa-solid fa-user"></i></button>
         <div class="user-icon-popup">
           <p>already have an account?</p>
-          <button class="logout-btn">login</button>
+          <button class="login-btn">login</button>
         </div>
       </div>
     </div>
@@ -55,16 +55,24 @@ document.addEventListener("DOMContentLoaded", function () {
     userPopupIcon.classList.toggle("active");
 
     const text = userPopupIcon.querySelector("p");
-    const actionBtn = userPopupIcon.querySelector(".logout-btn");
+    const actionBtn = userPopupIcon.querySelector(".login-btn");
     const user = JSON.parse(sessionStorage.getItem("user"));
 
     if (user) {
       // User is logged in
       text.innerHTML = `Hello, <b>${user.name}</b><br>Not you?`;
-      actionBtn.innerHTML = "Log out";
-      actionBtn.addEventListener("click", () => logout());
+      actionBtn.innerHTML = "Logout";
+      actionBtn.removeEventListener("click", handleLoginClick);
+      actionBtn.addEventListener("click", logout);
+    } else {
+      actionBtn.innerHTML = "Login";
+      actionBtn.addEventListener("click", handleLoginClick);
     }
   });
+
+  const handleLoginClick = () => {
+    window.location.href = "login.html";
+  };
 
   const logout = () => {
     if (confirm("Are you sure you want to log out?")) {

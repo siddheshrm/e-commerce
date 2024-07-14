@@ -175,7 +175,7 @@
   display: block;
 }
 
-.user-icon-popup button.logout-btn {
+.user-icon-popup button.login-btn {
   font-family: "Playwrite PE", cursive;
   display: block;
   width: 100%;
@@ -190,6 +190,6 @@
   margin-top: 10px;
 }
 
-.user-icon-popup button.logout-btn:hover {
+.user-icon-popup button.login-btn:hover {
   background: #d00042;
 }

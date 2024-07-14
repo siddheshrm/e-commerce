@@ -52,7 +52,7 @@ const createCards = (data) => {
       cards += `
             <div class="product-card">
                 <img src="${item.image}" onclick="location.href = '/products/${item.id}'" class="product-img" alt="">
-                <p class="product-name">${item.name} →</p>
+                <p class="product-name">${item.name}</p>
             </div>
         `;
     }
