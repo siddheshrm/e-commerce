@@ -41,6 +41,13 @@ const setData = (data) => {
 };
 
 const fetchProductData = () => {
+  const searchKey = decodeURI(location.pathname.split("/products/").pop());
+  if (searchKey.toLowerCase() === "login.html") {
+    // Redirect to index.html
+    window.location.href = "/login.html";
+    return;
+  }
+
   fetch("/get-products", {
     method: "post",
     headers: new Headers({ "Content-Type": "application/json" }),
@@ -58,7 +65,7 @@ const fetchProductData = () => {
       );
     })
     .catch((err) => {
-      console.log(err);
+      // console.log(err);
       alert("no product found");
       location.replace("/404");
     });
