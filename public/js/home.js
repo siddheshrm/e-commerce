@@ -33,14 +33,17 @@ const getProducts = (tag) => {
 };
 
 const createProductCards = (data, title, ele) => {
-  if (data.length) {
-    let container = document.querySelector(ele);
+  let container = document.querySelector(ele);
+  container.innerHTML = `<h1 class="section-title">Search results for "${title}"</h1>`;
+
+  if (Array.isArray(data) && data.length > 0) {
     container.innerHTML += `
-            <h1 class="section-title">${title}</h1>
-            <div class="product-container">
-                ${createCards(data)}
-            </div>
-        `;
+      <div class="product-container">
+        ${createCards(data)}
+      </div>
+    `;
+  } else {
+    container.innerHTML += `<p class="no-results">No results found</p>`;
   }
 };
 
