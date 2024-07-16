@@ -39,12 +39,12 @@ const processData = (data) => {
     let user = JSON.parse(sessionStorage.user);
     user.seller = true;
     sessionStorage.user = JSON.stringify(user);
-    alert("product added successfully!");
+    alert("Seller account added successfully!");
     location.replace("/dashboard");
   } else if (data.product) {
     location.replace("/dashboard");
   } else if (data == "review") {
-    alert("review submitted successfully!");
+    alert("Review submitted successfully!");
     location.reload();
   }
 };

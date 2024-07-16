@@ -11,30 +11,36 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+PE:wght@100..400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/form.css">
     <link rel="stylesheet" href="css/seller.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
 
     <img src="img/loading.gif" class="loader" alt="">
 
+    <nav class="navbar"></nav>
+
     <div class="form">
         <h1 class="form-title">Apply for a seller account</h1>
-        <input type="text" autocomplete="off" id="name" placeholder="business name">
-        <textarea id="address" autocomplete="off" placeholder="business address"></textarea>
-        <textarea id="about" autocomplete="off" placeholder="about your business"></textarea>
-        <input type="number" autocomplete="off" id="number" placeholder="contact number">
+        <input type="text" autocomplete="off" id="name" placeholder="business name" required>
+        <textarea id="address" autocomplete="off" placeholder="business address" required></textarea>
+        <textarea id="about" autocomplete="off" placeholder="about your business" required></textarea>
+        <input type="number" autocomplete="off" id="number" placeholder="contact number" required>
         <span class="error">This is an error</span>
         <button class="apply-btn">Get your seller account</button>
     </div>
 
-    <img src="img/seller-bg.png" class="seller-img" alt="">
+    <footer id="footer"></footer>
 
     <script src="js/common.js"></script>
     <script src="js/home.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/seller.js"></script>
+    <script src="js/footer.js"></script>
 
 </body>
 

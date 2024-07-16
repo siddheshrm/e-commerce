@@ -18,18 +18,19 @@ formBtn.addEventListener("click", () => {
   let number = document.querySelector("#number") || null;
   let tac = document.querySelector("#tc") || null;
 
-  if (fullname != null) {
-    //form validation
-    if (fullname.value.length < 3) {
-      showFormError("name must be 3 letter long");
-    } else if (!email.value.length) {
-      showFormError("enter your email");
-    } else if (password.value.length < 8) {
-      showFormError("password must be 8 letter long");
-    } else if (Number(number) || number.value.length < 10) {
-      showFormError("invalid number,please enter valid one");
+  // Signup form validations
+  if (fullname !== null) {
+    if (fullname.length < 5) {
+      showFormError("Name must be at least 5 characters long.");
+    } else if (!email) {
+      showFormError("Please enter a valid email.");
+    } else if (password.length < 8) {
+      showFormError("Password must be at least 8 characters long.");
+    } else if (Number(number) || number.value.length < 10 || number.value.length > 10) {
+      showFormError("Please enter a valid 10-digit mobile number.");
     } else if (!tac.checked) {
-      showFormError("you must agree to our terms and condition");
+      showFormError("Please agree to our terms and conditions.");
+      // return;
     } else {
       //submit form
       loader.style.display = "block";
@@ -44,7 +45,7 @@ formBtn.addEventListener("click", () => {
   } else {
     //login page
     if (!email.value.length || !password.value.length) {
-      showFormError("fill all the required inputs");
+      showFormError("Fill all the required inputs.");
     } else {
       loader.style.display = "block";
       sendData("/login", {
