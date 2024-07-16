@@ -77,7 +77,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const logout = () => {
     if (confirm("Are you sure you want to log out?")) {
       sessionStorage.removeItem("user");
-      // window.location.href = "/";
       window.location.reload();
     }
   };
@@ -91,20 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
       location.href = `/search/${encodeURIComponent(searchBox.value.trim())}`;
     }
   });
-
-  const updateNavCartCounter = () => {
-    const cartCounter = document.querySelector(".cart-item-count");
-    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-
-    if (cartItems.length === 0) {
-      cartCounter.textContent = "00";
-    } else if (cartItems.length > 9) {
-      cartCounter.textContent = "9+";
-    } else {
-      cartCounter.textContent =
-        cartItems.length < 10 ? `0${cartItems.length}` : cartItems.length;
-    }
-  };
 
   updateNavCartCounter();
 

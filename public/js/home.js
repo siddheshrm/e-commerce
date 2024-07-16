@@ -82,5 +82,7 @@ const add_product_to_cart = (product) => {
 
   cart.push(product);
   localStorage.setItem("cart", JSON.stringify(cart));
+  alert("product added to cart successfully!");
+  window.location.reload();
   return "added";
 };

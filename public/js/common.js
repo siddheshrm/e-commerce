@@ -1,3 +1,18 @@
+// Update cart products counter
+const updateNavCartCounter = () => {
+  const cartCounter = document.querySelector(".cart-item-count");
+  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+  if (cartItems.length === 0) {
+    cartCounter.textContent = "00";
+  } else if (cartItems.length > 9) {
+    cartCounter.textContent = "9+";
+  } else {
+    cartCounter.textContent =
+      cartItems.length < 10 ? `0${cartItems.length}` : cartItems.length;
+  }
+};
+
 const sendData = (path, data) => {
   fetch(path, {
     method: "post",
