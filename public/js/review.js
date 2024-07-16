@@ -1,5 +1,5 @@
-let ratingStarInput = [...document.querySelectorAll(".rating-star")];
 let rate = 0;
+let user = JSON.parse(sessionStorage.getItem("user"));
 
 ratingStarInput.map((star, index) => {
   star.addEventListener("click", () => {
@@ -24,14 +24,18 @@ addReviewBtn.addEventListener("click", () => {
   // form validation
   if (user.email == undefined) {
     // user is not logged in
+    alert("Please log in to add a review. Redirecting to the login page.");
     location.href = `/login?after_page=${productId}`;
   } else {
     if (!reviewHeadline.value.length || !review.value.length || rate == 0) {
-      showFormError("Fill all the inputs");
-    } else if (reviewHeadline.value.length > 50) {
-      showFormError("headline should not be more than 50 letters");
-    } else if (review.value.length > 150) {
-      showFormError("review should not be more than 150 letters");
+      showFormError("Please fill all the inputs");
+    } else if (
+      reviewHeadline.value.length < 10 ||
+      reviewHeadline.value.length > 50
+    ) {
+      showFormError("Headline should be between 10 and 50 characters");
+    } else if (review.value.length < 50 || review.value.length > 500) {
+      showFormError("Review should be between 50 and 500 characters");
     } else {
       // send the data to backend
       loader.style.display = "block";

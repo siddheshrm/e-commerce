@@ -139,8 +139,7 @@ draftBtn.addEventListener("click", () => {
   }
 });
 
-// edit page
-
+// edit product page
 const fetchProductData = () => {
   addProductBtn.innerText = "Save Product";
   fetch("/get-products", {

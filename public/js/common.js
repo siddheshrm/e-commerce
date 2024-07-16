@@ -14,7 +14,7 @@ const processData = (data) => {
     showFormError(data.alert);
   } else if (data.email) {
     sessionStorage.user = JSON.stringify(data);
-    if (location.search.includes("after")) {
+    if (location.search.includes("after_page")) {
       let pageId = location.search.split("=")[1];
       location.replace(`/products/${pageId}`);
     } else {
@@ -24,10 +24,12 @@ const processData = (data) => {
     let user = JSON.parse(sessionStorage.user);
     user.seller = true;
     sessionStorage.user = JSON.stringify(user);
+    alert("product added successfully!");
     location.replace("/dashboard");
   } else if (data.product) {
     location.replace("/dashboard");
   } else if (data == "review") {
+    alert("review submitted successfully!");
     location.reload();
   }
 };

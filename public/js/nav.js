@@ -77,7 +77,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const logout = () => {
     if (confirm("Are you sure you want to log out?")) {
       sessionStorage.removeItem("user");
-      window.location.href = "login.html";
+      // window.location.href = "/";
+      window.location.reload();
     }
   };
 

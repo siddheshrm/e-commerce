@@ -227,7 +227,7 @@ app.post("/add-product", (req, res) => {
     }
   }
 
-  // add or update product
+  // add or edit product
   let docName =
     id == undefined
       ? `${name.toLowerCase()}-${Math.floor(Math.random() * 50000)}`
@@ -324,8 +324,7 @@ app.post("/add-review", (req, res) => {
       return res.json("review");
     })
     .catch((err) => {
-      // console.log(err);
-      res.json({ alert: "some err occured" });
+      res.json({ alert: "some err occurred" });
     });
 });
 
