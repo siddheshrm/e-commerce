@@ -128,7 +128,7 @@ draftBtn.addEventListener("click", () => {
   ) {
     showFormError("Product name must be at least 5 characters long");
   } else {
-    // don't validate the form
+    // Don't validate the form
     let data = productData();
     loader.style.display = "block";
     data.draft = true;
@@ -150,7 +150,6 @@ const fetchProductData = () => {
     .then((res) => res.json())
     .then((data) => {
       setFormData(data);
-      //  console.log(data);
     })
     .catch((err) => console.log(err));
 };
@@ -167,7 +166,7 @@ const setFormData = (data) => {
 };
 
 let productId = null;
-if (location.pathname != "/add-product") {
+if (location.pathname.includes("/add-product/")) {
   productId = decodeURI(location.pathname.split("/").pop());
   fetchProductData();
 }

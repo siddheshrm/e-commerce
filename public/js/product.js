@@ -60,12 +60,12 @@ const fetchProductData = () => {
         createProductCards(
           res,
           "Similar Products",
-          ".best-selling-product-section"
+          ".best-selling-product-section",
+          true
         )
       );
     })
-    .catch((err) => {
-      // console.log(err);
+    .catch(() => {
       alert("no product found");
       location.replace("/404");
     });

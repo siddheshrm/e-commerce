@@ -99,8 +99,11 @@ body {
   opacity: 0.75;
 }
 
-.review-container {
-  margin: 0;
+.review-submit-container {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.25rem;
+  justify-content: space-between;
 }
 
 .review-headline,
@@ -136,13 +139,6 @@ body {
 .review-headline:focus,
 .review-field:focus::placeholder {
   border-color: #d5be8b;
-}
-
-.rating-text {
-  font-family: "Playwrite PE", cursive;
-  color: #000000;
-  margin: 10px 0;
-  font-size: 1.25rem;
 }
 
 .error {
@@ -188,5 +184,5 @@ body {
 
 .product-card,
 .review-card {
-  margin-right: 20px;
+  margin-right: 40px;
 }
