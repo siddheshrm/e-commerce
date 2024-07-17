@@ -17,16 +17,23 @@ applyBtn.addEventListener("click", () => {
   let about = document.querySelector("#about").value;
   let number = document.querySelector("#number").value;
 
-  if (
-    !businessName.length ||
-    !address.length ||
-    !about.length ||
-    number.length < 10 ||
-    !Number(number)
-  ) {
-    showFormError("some information is/are incorrect");
+  // Seller form validations
+  if (!businessName) {
+    showFormError("Business name is required");
+  } else if (businessName.length < 3) {
+    showFormError("Business name must be at least 3 characters long");
+  } else if (!address) {
+    showFormError("Address is required");
+  } else if (!about) {
+    showFormError("Business description is required");
+  } else if (about.length < 50) {
+    showFormError("Business description must be at least 50 characters long");
+  } else if (!number) {
+    showFormError("Contact number is required");
+  } else if (number.length < 10 || number.length > 10) {
+    showFormError("Please enter a valid 10-digit contact number.");
   } else {
-    //send data
+    // Send data
     loader.style.display = "block";
     sendData("/seller", {
       name: businessName,

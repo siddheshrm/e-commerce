@@ -1,26 +1,19 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border;
+  box-sizing: border-box;
 }
 
 body {
   width: 100%;
-  height: 100vh;
-  display: flex;
-  background: white;
+  background: url("../img/wooden_table.jpeg") no-repeat center center fixed;
+  background-size: cover;
   font-family: "Playwrite PE", cursive;
 }
 
-.seller-img {
-  width: 40%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .form {
-  width: 60%;
-  padding: 20px;
+  width: 100%;
+  padding-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,31 +32,28 @@ textarea {
   width: 70%;
   border: 1px solid #cccccc;
   border-radius: 5px;
-  height: 1.2rem;
-  font-size: 0.9rem;
+  height: 50px;
+  font-size: 1rem;
   line-height: 1.5rem;
-  padding: 10px;
+  padding: 0 10px;
   margin: 10px 0;
+  padding: 10px;
 }
 
 textarea {
   height: 8rem;
-  /* font-family: "Lato", sans-serif; */
-  font-family: "Playwrite PE", cursive;
   resize: none;
   outline: none;
 }
 
 .apply-btn {
-  width: 250px;
-  padding: 10px 0;
-  font-size: 0.9rem;
-  text-transform: capitalize;
+  width: auto;
+  padding: 10px;
+  font-size: 1.2rem;
   background: #d5be8b;
   border: none;
   color: white;
   margin-top: 20px;
   cursor: pointer;
-  /* font-family: "Cinzel"; */
   font-family: "Playwrite PE", cursive;
 }

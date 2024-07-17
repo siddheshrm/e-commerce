@@ -16,7 +16,7 @@ import {
 } from "firebase/firestore";
 import stripe from "stripe";
 
-// Your web app's Firebase configuration
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDFAF2XJkhQI6RhC6wzDjmckv7bkR5ncxE",
   authDomain: "online-ecommerce-website.firebaseapp.com",
@@ -30,19 +30,19 @@ const firebaseConfig = {
 const firebase = initializeApp(firebaseConfig);
 const db = getFirestore();
 
-//init server
+// Init server
 const app = express();
 
-//middlewares - to make public folder to static folder
+// Middlewares - to make public folder to static folder
 app.use(express.static("public"));
 //enables form sharing
 app.use(express.json());
 
-//aws
+// AWS
 import aws from "aws-sdk";
 import "dotenv/config";
 
-//aws setup
+// AWS setup
 const region = "ap-south-1";
 const bucketName = "furnituredotcom";
 const accessKeyId = process.env.AWS_ACCESS_KEY;
@@ -54,10 +54,10 @@ aws.config.update({
   secretAccessKey,
 });
 
-// init s3
+// Init s3
 const s3 = new aws.S3();
 
-// generate image url
+// Generate image url
 async function generateURL() {
   let date = new Date();
 
@@ -78,45 +78,45 @@ app.get("/s3url", (req, res) => {
   generateURL().then((url) => res.json(url));
 });
 
-// routes
-// home route
+// Routes
+// Home route
 app.get("/", (req, res) => {
   res.sendFile("index.html", { root: "public" });
 });
 
-// signup
+// Signup route
 app.get("/signup", (req, res) => {
   res.sendFile("signup.html", { root: "public" });
 });
 
 app.post("/signup", (req, res) => {
   const { name, email, password, number, tac } = req.body;
-  // form validations
-  if (name.length < 3) {
-    res.json({ alert: "name must be 3 letters long" });
+  // Form validations
+  if (name.length < 5) {
+    res.json({ alert: "Name must be at least 5 characters long." });
   } else if (!email.length) {
-    res.json({ alert: "enter your email" });
+    res.json({ alert: "Please enter a valid email." });
   } else if (password.length < 8) {
-    res.json({ alert: "password must be 8 letters long" });
-  } else if (!Number(number) || number.length < 10) {
-    res.json({ alert: "invalid number, please enter valid one" });
+    res.json({ alert: "Password must be at least 8 characters long." });
+  } else if (!/^\d{10}$/.test(number)) {
+    res.json({ alert: "Please enter a valid 10-digit mobile number." });
   } else if (!tac) {
-    res.json({ alert: "you must agree to our terms and condition" });
+    res.json({ alert: "Please agree to our terms and conditions." });
   } else {
-    // store the data in db
+    // Store the data in db
     const users = collection(db, "users");
 
     getDoc(doc(users, email)).then((user) => {
       if (user.exists()) {
-        return res.json({ alert: "email already exists" });
+        return res.json({ alert: "Email already exists, please use different email to signup."});
       } else {
-        // encrypt the password
+        // Encrypt the password
         bcrypt.genSalt(10, (err, salt) => {
           bcrypt.hash(password, salt, (err, hash) => {
             req.body.password = hash;
             req.body.seller = false;
 
-            // set the doc
+            // Set the doc
             setDoc(doc(users, email), req.body).then((data) => {
               res.json({
                 name: req.body.name,
@@ -227,7 +227,7 @@ app.post("/add-product", (req, res) => {
     }
   }
 
-  // add or update product
+  // Add or edit product
   let docName =
     id == undefined
       ? `${name.toLowerCase()}-${Math.floor(Math.random() * 50000)}`
@@ -324,8 +324,7 @@ app.post("/add-review", (req, res) => {
       return res.json("review");
     })
     .catch((err) => {
-      // console.log(err);
-      res.json({ alert: "some err occured" });
+      res.json({ alert: "some error occurred" });
     });
 });
 

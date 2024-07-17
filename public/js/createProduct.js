@@ -9,17 +9,25 @@ const showAlert = (message) => {
   alert(message);
 };
 
-const createProduct = (data) => {
+const createProduct = (data, draft) => {
   let productContainer = document.querySelector(".product-container");
   productContainer.innerHTML += `
     <div class="product-card" data-id="${data.id}">
         <button class="btn edit-btn" onclick="location.href = '/add-product/${data.id}'"><img src="img/edit.png" alt=""></button>
-        <button class="btn open-btn" onclick="location.href = '/products/${data.id}'"><img src="img/open.png" alt=""></button>
+        <button class="btn open-btn" onclick="openProduct('${data.id}', ${draft})"><img src="img/open.png" alt=""></button>
         <button class="btn delete-btn" onclick="deleteItem('${data.id}')"><img src="img/delete.png" alt=""></button>
         <img src="${data.image}" class="product-img" alt="">
         <p class="product-name">${data.tags[0]}</p>
     </div>
   `;
+};
+
+const openProduct = (id, draft) => {
+  if (draft) {
+    showAlert("This product is still in draft status and cannot be opened. Please finalize the draft first.");
+  } else {
+    location.href = `/products/${id}`;
+  }
 };
 
 const deleteItem = (id) => {

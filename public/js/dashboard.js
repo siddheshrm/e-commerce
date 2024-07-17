@@ -27,7 +27,7 @@ const setupProducts = () => {
       if (data === "no products" || data.length === 0) {
         noProductMessage.classList.add("active");
       } else {
-        data.forEach((product) => createProduct(product));
+        data.forEach((product) => createProduct(product, product.draft));
       }
     })
     .catch((error) => {

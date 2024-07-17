@@ -23,9 +23,9 @@ editables.forEach((element) => {
   });
 });
 
-// image upload
+// Image upload
 let uploadInput = document.querySelector("#upload-image");
-let imagePath = "img/noImage.png"; // default image
+let imagePath = ""; // Initializing with an empty string, no default image
 
 uploadInput.addEventListener("change", () => {
   const file = uploadInput.files[0];
@@ -50,7 +50,7 @@ uploadInput.addEventListener("change", () => {
   }
 });
 
-// form submission
+// Form submission
 let addProductBtn = document.querySelector(".add-product-btn");
 let loader = document.querySelector(".loader");
 
@@ -61,8 +61,8 @@ let detail = document.querySelector(".des");
 let tags = document.querySelector(".tags");
 
 addProductBtn.addEventListener("click", () => {
-  // verification
-  if (imagePath === "img/noImage.png") {
+  // Verification
+  if (!imagePath) {
     showFormError("Please upload a product image");
   } else if (
     productName.innerText == productName.getAttribute("data-placeholder") ||
@@ -92,7 +92,7 @@ addProductBtn.addEventListener("click", () => {
       "Please enter at least 3 product tags for better search results"
     );
   } else {
-    // submit form
+    // Submit form
     loader.style.display = "block";
     let data = productData();
     if (productId) {
@@ -139,8 +139,7 @@ draftBtn.addEventListener("click", () => {
   }
 });
 
-// edit page
-
+// Edit product page
 const fetchProductData = () => {
   addProductBtn.innerText = "Save Product";
   fetch("/get-products", {
