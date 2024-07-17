@@ -95,10 +95,10 @@ app.post("/signup", (req, res) => {
   if (name.length < 5) {
     res.json({ alert: "Name must be at least 5 characters long." });
   } else if (!email.length) {
-    res.json({ alert: "Enter your email" });
+    res.json({ alert: "Please enter a valid email." });
   } else if (password.length < 8) {
     res.json({ alert: "Password must be at least 8 characters long." });
-  } else if (Number(number) || number.value.length < 10 || number.value.length > 10) {
+  } else if (!/^\d{10}$/.test(number)) {
     res.json({ alert: "Please enter a valid 10-digit mobile number." });
   } else if (!tac) {
     res.json({ alert: "Please agree to our terms and conditions." });

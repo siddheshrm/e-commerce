@@ -62,6 +62,7 @@ body {
   overflow: hidden;
   position: relative;
   transition: box-shadow 0.3s ease;
+  border: 5px solid #d5be8b;
 }
 
 .product-card:hover {

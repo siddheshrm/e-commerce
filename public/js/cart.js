@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  
-  // create small product cards
+  // Create small product cards
   const createSmallCards = (data) => {
     return `
     <div class="sm-product">
@@ -56,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const setupCardEvents = () => {
-    // setup counter event
+    // Setup product counter
     const counterMinus = document.querySelectorAll(
       ".cart-container .decrement"
     );

@@ -100,7 +100,6 @@ body {
 }
 
 .review-container {
-  display: flex;
   margin: 0;
 }
 
@@ -146,6 +145,31 @@ body {
   font-size: 1.25rem;
 }
 
+.error {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  min-height: 100px;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  z-index: 9;
+  text-align: center;
+  text-transform: capitalize;
+  color: #ff3737;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s;
+}
+
+.error.show {
+  opacity: 1;
+}
+
 .add-review-btn {
   border: none;
   outline: none;
@@ -156,4 +180,13 @@ body {
   font-size: 16px;
   text-transform: capitalize;
   cursor: pointer;
+}
+
+.product-card {
+  border: 5px solid #d5be8b;
+}
+
+.product-card,
+.review-card {
+  margin-right: 20px;
 }
