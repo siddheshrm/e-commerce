@@ -1,5 +1,6 @@
 let rate = 0;
 let user = JSON.parse(sessionStorage.getItem("user"));
+let user = JSON.parse(sessionStorage.getItem("user"));
 
 ratingStarInput.map((star, index) => {
   star.addEventListener("click", () => {
@@ -24,6 +25,7 @@ addReviewBtn.addEventListener("click", () => {
   // form validation
   if (user.email == undefined) {
     // user is not logged in
+    alert("Please log in to add a review. Redirecting to the login page.");
     alert("Please log in to add a review. Redirecting to the login page.");
     location.href = `/login?after_page=${productId}`;
   } else {

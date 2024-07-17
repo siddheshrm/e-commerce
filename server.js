@@ -16,7 +16,7 @@ import {
 } from "firebase/firestore";
 import stripe from "stripe";
 
-// Firebase configuration
+// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDFAF2XJkhQI6RhC6wzDjmckv7bkR5ncxE",
   authDomain: "online-ecommerce-website.firebaseapp.com",
@@ -30,19 +30,19 @@ const firebaseConfig = {
 const firebase = initializeApp(firebaseConfig);
 const db = getFirestore();
 
-// Init server
+//init server
 const app = express();
 
-// Middlewares - to make public folder to static folder
+//middlewares - to make public folder to static folder
 app.use(express.static("public"));
 //enables form sharing
 app.use(express.json());
 
-// AWS
+//aws
 import aws from "aws-sdk";
 import "dotenv/config";
 
-// AWS setup
+//aws setup
 const region = "ap-south-1";
 const bucketName = "furnituredotcom";
 const accessKeyId = process.env.AWS_ACCESS_KEY;
@@ -54,10 +54,10 @@ aws.config.update({
   secretAccessKey,
 });
 
-// Init s3
+// init s3
 const s3 = new aws.S3();
 
-// Generate image url
+// generate image url
 async function generateURL() {
   let date = new Date();
 
@@ -78,13 +78,13 @@ app.get("/s3url", (req, res) => {
   generateURL().then((url) => res.json(url));
 });
 
-// Routes
-// Home route
+// routes
+// home route
 app.get("/", (req, res) => {
   res.sendFile("index.html", { root: "public" });
 });
 
-// Signup route
+// signup
 app.get("/signup", (req, res) => {
   res.sendFile("signup.html", { root: "public" });
 });
@@ -108,15 +108,17 @@ app.post("/signup", (req, res) => {
 
     getDoc(doc(users, email)).then((user) => {
       if (user.exists()) {
-        return res.json({ alert: "Email already exists, please use different email to signup."});
+        return res.json({
+          alert: "Email already exists, please use different email to signup.",
+        });
       } else {
-        // Encrypt the password
+        // encrypt the password
         bcrypt.genSalt(10, (err, salt) => {
           bcrypt.hash(password, salt, (err, hash) => {
             req.body.password = hash;
             req.body.seller = false;
 
-            // Set the doc
+            // set the doc
             setDoc(doc(users, email), req.body).then((data) => {
               res.json({
                 name: req.body.name,
@@ -227,7 +229,7 @@ app.post("/add-product", (req, res) => {
     }
   }
 
-  // Add or edit product
+  // add or edit product
   let docName =
     id == undefined
       ? `${name.toLowerCase()}-${Math.floor(Math.random() * 50000)}`
@@ -324,7 +326,7 @@ app.post("/add-review", (req, res) => {
       return res.json("review");
     })
     .catch((err) => {
-      res.json({ alert: "some error occurred" });
+      res.json({ alert: "some err occurred" });
     });
 });
 

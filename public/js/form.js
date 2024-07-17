@@ -31,6 +31,8 @@ formBtn.addEventListener("click", () => {
     } else if (!tac.checked) {
       showFormError("Please agree to our terms and conditions.");
       // return;
+      showFormError("Please agree to our terms and conditions.");
+      // return;
     } else {
       //Send data
       loader.style.display = "block";
