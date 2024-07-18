@@ -1,8 +1,7 @@
-/* Cart Page Specific CSS */
 .cart-section {
   margin-top: 50px;
   width: 100%;
-  padding: 40px ;
+  padding: 40px;
   display: flex;
   justify-content: space-between;
   gap: 20px;

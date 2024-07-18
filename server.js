@@ -372,7 +372,7 @@ app.get("/checkout", (req, res) => {
   res.sendFile("checkout.html", { root: "public" });
 });
 
-//stripe payment
+// Stripe payment
 let stripeGateway = stripe(process.env.stripe_key);
 let DOMAIN = process.env.DOMAIN;
 
@@ -387,7 +387,7 @@ app.post("/stripe-checkout", async (req, res) => {
     line_items: req.body.items.map((item) => {
       return {
         price_data: {
-          currency: "usd",
+          currency: "inr",
           product_data: {
             name: item.name,
             description: item.shortDes,

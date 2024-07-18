@@ -31,7 +31,7 @@ const setData = (data) => {
   price.innerHTML = `₹${data.price}`;
 
   cartBtn.addEventListener("click", () => {
-    cartBtn.innerHTML = add_product_to_cart(data);
+    cartBtn.innerHTML = addProductToCart(data);
   });
 
   buyBtn.addEventListener("click", () => {

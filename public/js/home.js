@@ -69,24 +69,33 @@ const createCards = (data) => {
 };
 
 //cart function
-const add_product_to_cart = (product) => {
+const addProductToCart = (product) => {
   updateNavCartCounter();
   let cart = JSON.parse(localStorage.getItem("cart"));
 
   if (cart == null) {
     cart = [];
   }
-  product = {
-    item: 1,
-    name: product.name,
-    price: product.price,
-    shortDes: product.shortDes,
-    image: product.image,
-  };
 
-  cart.push(product);
+  const existingProductIndex = cart.findIndex(
+    (item) => item.name === product.name
+  );
+
+  if (existingProductIndex > -1) {
+    cart[existingProductIndex].item += 1; // Increment the quantity if product already exists in cart
+  } else {
+    product = {
+      item: 1,
+      name: product.name,
+      price: product.price,
+      shortDes: product.shortDes,
+      image: product.image,
+    };
+    cart.push(product);
+  }
+
   localStorage.setItem("cart", JSON.stringify(cart));
   alert("Product added to cart successfully!");
   window.location.reload();
-  return "added";
+  return "added to cart";
 };

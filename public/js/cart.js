@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }</p>
         <button class="sm-delete-btn"><img src="img/close.png" alt=""></button>
     </div>
-  `;
+    `;
   };
 
   let totalBill = 0;
@@ -62,9 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const counterPlus = document.querySelectorAll(".cart-container .increment");
     const counts = document.querySelectorAll(".cart-container .item-count");
     const price = document.querySelectorAll(".cart-container .sm-price");
-    const deleteBtn = document.querySelectorAll(
-      ".cart-container .sm-delete-btn"
-    );
+    const deleteBtn = document.querySelectorAll(".cart-container .sm-delete-btn");
 
     let product = JSON.parse(localStorage.getItem("cart"));
 
