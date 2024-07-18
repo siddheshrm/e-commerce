@@ -81,7 +81,11 @@ body {
   background-color: #190c05;
 }
 
-.best-selling-product-section {
+.product-container {
+  justify-content: initial;
+}
+
+.similar-products {
   padding: 100px;
 }
 

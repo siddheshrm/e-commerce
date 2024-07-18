@@ -49,6 +49,7 @@ body {
 
 .product-container {
   display: flex;
+  justify-content: space-between;
 }
 
 .product-card {

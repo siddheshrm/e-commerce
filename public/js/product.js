@@ -12,7 +12,7 @@ ratingStarInput.map((star, index) => {
   });
 });
 
-// product page
+// Product details page
 let productName = document.querySelector(".product-title");
 let shortDes = document.querySelector(".product-des");
 let price = document.querySelector(".price");
@@ -55,12 +55,17 @@ const fetchProductData = () => {
   })
     .then((res) => res.json())
     .then((data) => {
+      if (data.draft) {
+        alert("Product not found");
+        location.replace("/404");
+        return;
+      }
       setData(data);
       getProducts(data.tags[0]).then((res) =>
         createProductCards(
-          res,
+          res.filter((product) => !product.draft),
           "Similar Products",
-          ".best-selling-product-section",
+          ".similar-products",
           true
         )
       );

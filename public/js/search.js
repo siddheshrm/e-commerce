@@ -1,9 +1,13 @@
 const searchKey = decodeURI(location.pathname.split("/").pop());
 
 if (searchKey.toLowerCase() === "login.html") {
-  window.location.reload();
+  window.location.href = "/login.html";
 } else {
   getProducts(searchKey).then((data) =>
-    createProductCards(data, searchKey, ".search-listing")
+    createProductCards(
+      data.filter((product) => !product.draft),
+      searchKey,
+      ".search-listing"
+    )
   );
 }
