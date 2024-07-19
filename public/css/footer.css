@@ -1,46 +1,61 @@
-/* Footer styles */
 footer {
   font-family: "Playwrite PE", cursive;
   color: #d5be8b;
   width: 100%;
   padding: 60px;
+  background-color: #f8f8f8;
 }
 
 .footer-content {
   text-align: left;
   line-height: 1.5;
-  font-size: 20px;
 }
 
 .footer-title {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 40px;
+  font-size: 2rem;
   font-weight: bold;
   color: brown;
+  margin-bottom: 20px;
 }
 
 .footer-info {
   color: black;
   margin: 10px 0;
-  font-size: 20px;
+  font-size: 1rem; /* 16px */
 }
 
 .footer-social-container {
-  margin: 10px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 10px 0;
 }
 
 .footer-social-container div {
   display: flex;
 }
 
-.social-link {
-  margin-left: 20px;
+.footer-link {
+  margin-right: 2rem;
   color: black;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 1rem;
+}
+
+.footer-link:last-child {
+  margin-right: 0;
+}
+
+.footer-link:hover {
+  color: #fff;
+}
+
+.social-link {
+  margin-left: 1rem;
+  color: black;
+  text-decoration: none;
+  font-size: 1.5rem;
 }
 
 .social-link:first-child {
@@ -51,8 +66,7 @@ footer {
   color: #fff;
 }
 
-.fa-brands,
-.fab {
-  font-size: 30px;
+.fa-brands {
+  font-size: 1.5rem;
   color: #000;
 }
