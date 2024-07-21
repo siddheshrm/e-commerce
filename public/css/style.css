@@ -4,56 +4,76 @@
   box-sizing: border-box;
 }
 
+:root {
+  --background-color: #e3f2fd;
+  --text-color: #333333;
+}
+
 body {
   background: var(--background-color);
   color: var(--text-color);
   font-family: "Playwrite PE", cursive;
-  transition: backgrounf 0.8s, color 0.8s;
+  transition: background 0.8s, color 0.8s;
 }
 
 /* Header styles */
 .header-section {
-  font-family: "Playwrite PE", cursive;
   text-transform: none;
   width: 100%;
   height: 100vh;
-  background: url(../img/furniture.jpg);
+  background: url(../img/e-commerce.jpg);
   background-size: cover;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .header-heading {
-  font-size: 100px;
-  text-transform: lowercase;
-  color: #f0f0f0;
+  font-family: "Signika Negative", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 5rem;
+  color: slateblue;
+  text-align: center;
+  transition: transform 0.5s ease;
+}
+
+.header-heading:hover {
+  transform: scale(1.05);
 }
 
 .header-heading span {
-  color: black;
+  color: rgb(85, 85, 85);
 }
 
-/* best selling product */
+.header-info {
+  font-family: "Playwrite PE", cursive;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+  max-width: 90%;
+}
 
+/* Best selling products */
 .best-selling-product-section {
   position: relative;
-  padding: 60px 5vw;
+  padding: 25px;
 }
 
 .section-title {
   text-transform: capitalize;
-  font-size: 30px;
-  margin-bottom: 30px;
+  font-size: 1.25rem;
 }
 
 .product-container {
   display: flex;
   justify-content: space-between;
+  margin: 10px 0;
 }
 
 .product-card {
-  border: 15px solid #d5be8b;
+  border: 10px solid #d5be8b;
   width: 300px;
   height: 300px;
   overflow: hidden;
@@ -78,12 +98,14 @@ body {
   color: #fff;
   text-transform: capitalize;
   font-family: "Playwrite PE", cursive;
-  font-size: 25px;
+  font-size: 1.5rem;
   bottom: 20px;
   left: 50%;
+  text-align: center;
   transform: translateX(-50%);
   opacity: 0;
   transition: 0.5s;
+  font-weight: 500;
 }
 
 .product-card:hover .product-name {
@@ -91,66 +113,13 @@ body {
 }
 
 .product-card:hover .product-img {
-  opacity: 0.5;
+  opacity: 0.9;
 }
 
-/* mid section */
-
-.mid-section {
-  width: 100%;
-  height: 800px;
-  padding: 40px 5vw;
-}
-
-.section-item-container {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  padding: 20px;
-}
-
-.section-bg {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-}
-
-.section-info {
-  width: 50%;
-  height: 100%;
-  background: whitesmoke;
-  display: block;
-  margin-left: auto;
-  padding: 50px;
-  text-align: left;
-}
-
-.title {
-  font-size: 60px;
-  line-height: 100px;
-}
-
-.title span {
-  color: #d5be8b;
-}
-
-.info {
-  font-family: "Playwrite PE", cursive;
-  font-size: 25px;
-  line-height: 45px;
-  margin-top: 30px;
-  opacity: 0.5;
-}
-
-/* image collage */
-
+/* Image collage */
 .image-mid-section {
-  width: 100%;
   height: 600px;
-  padding: 50px 5vw;
+  padding: 25px;
 }
 
 .image-collage {
@@ -162,10 +131,9 @@ body {
 
 .image-collection {
   position: relative;
-  display: block;
   width: 50%;
   height: 100%;
-  background: #fff;
+  background: #d1d1d1;
   margin: auto;
 }
 
@@ -176,42 +144,41 @@ body {
 }
 
 .collage-img:nth-child(1) {
-  width: 350px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   top: 20px;
-  left: 40px;
+  left: 20px;
 }
 
 .collage-img:nth-child(2) {
-  width: 250px;
-  height: 250px;
-  top: 200px;
+  width: 325px;
+  height: 325px;
+  bottom: 20px;
   left: 200px;
 }
 
 .collage-img:nth-child(3) {
   width: 250px;
   height: 250px;
-  top: 100px;
-  left: 350px;
+  top: 50px;
+  right: 20px;
 }
 
 .collage-img:hover {
   transform: translateY(-10px);
 }
 
-/* review section */
-
+/* Review section */
 .review-section {
-  padding: 50px 5vw;
+  padding: 25px;
 }
 
 .section-title span {
-  color: #d5be8b;
+  color: #ff731c;
 }
 
 .review-container {
-  margin: 50px;
+  margin: 10px 0;
   margin-bottom: 0;
   display: flex;
 }
@@ -220,6 +187,8 @@ body {
   width: 250px;
   height: auto;
   font-family: "Playwrite PE", cursive;
+  flex-basis: fit-content;
+  padding: 0 25px;
 }
 
 .user-dp {
@@ -258,25 +227,65 @@ body {
 }
 
 .review-title {
-  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 25px;
   margin: 30px 0;
 }
 
 .review {
-  opacity: 0.7;
+  opacity: 0.75;
 }
 
 .end-section {
-  padding: 50px 5vw;
+  padding: 25px;
 }
 
 .end-section .section-item-container {
-  height: 800px;
+  height: 600px;
 }
 
 .end-section .title {
-  font-size: 100px;
-  line-height: 150px;
-  /* margin: 50px; */
+  font-size: 2rem;
+}
+
+.section-item-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 20px;
+}
+
+.section-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+.section-info {
+  width: 40%;
+  height: 100%;
+  background: whitesmoke;
+  display: block;
+  margin-left: auto;
+  padding: 25px;
+  text-align: left;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.title span {
+  color: #ff731c;
+}
+
+.info {
+  font-family: "Playwrite PE", cursive;
+  font-size: 1.1rem;
+  line-height: 45px;
+  margin-top: 30px;
+  opacity: 0.75;
 }

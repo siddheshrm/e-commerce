@@ -1,35 +1,31 @@
 .cart-section {
-  margin-top: 50px;
   width: 100%;
-  padding: 40px;
+  padding: 25px;
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 50px;
 }
 
 .product-list {
-  width: 70%;
+  width: 75%;
 }
 
 .section-heading {
-  font-size: 30px;
+  font-size: 1.5rem;
   font-weight: 500;
-  margin: 20px 0;
-  text-transform: capitalize;
 }
 
 .cart-container {
+  margin: 10px 0;
   width: 100%;
   padding: 20px;
   border-radius: 5px;
   border: 1px solid #d8d8d8;
-  font-family: "Playwrite PE", cursive;
 }
 
 .empty-img {
-  width: 50%;
+  width: 100%;
   display: block;
-  margin: auto;
 }
 
 .sm-product {
@@ -40,7 +36,7 @@
   align-items: center;
   overflow: hidden;
   position: relative;
-  margin-bottom: 20px;
+  margin: 10px 0;
 }
 
 .cart-container .sm-product:last-child {
@@ -59,31 +55,31 @@
 }
 
 .sm-product-name {
-  font-size: 25px;
-  font-weight: 700;
-  text-transform: capitalize;
-  margin-bottom: 10px;
-}
-
-.sm-des {
-  font-size: 18px;
-  opacity: 0.5;
-  line-height: 25px;
-  text-transform: capitalize;
-  margin-top: 10px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 15%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .item-counter {
   width: 90px;
   height: 30px;
   display: flex;
-  margin-right: 20px;
+  align-items: center;
+  position: absolute;
+  right: 20%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .counter-btn,
 .item-count {
   width: 30px;
   height: 30px;
+  border-radius: 50%;
 }
 
 .counter-btn {
@@ -91,6 +87,7 @@
   border: 1px solid rgb(216, 216, 216);
   border-radius: 1px;
   cursor: pointer;
+  border-radius: 50%;
 }
 
 .item-count {
@@ -100,9 +97,7 @@
 }
 
 .sm-price {
-  font-size: 50px;
-  font-weight: 500;
-  color: #383838;
+  font-size: 2rem;
 }
 
 .sm-delete-btn {
@@ -126,40 +121,44 @@
 }
 
 .checkout-section {
-  width: 30%;
+  width: 25%;
 }
 
 .checkout-box {
   width: 100%;
   border-radius: 2px;
   border: 1px solid #d8d8d8;
-  padding: 20px;
+  padding: 25px;
 }
 
 .text {
-  text-transform: capitalize;
-  font-size: 18px;
+  font-size: 1.5rem;
 }
 
 .checkout-btn,
 .place-order-btn {
+  font-family: Arial, Helvetica, sans-serif;
   display: block;
   width: 100%;
   border: none;
   outline: none;
   cursor: pointer;
-  height: 40px;
-  border-radius: 5px;
-  background: #1d1d1d;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: #03a9f4;
   color: #fff;
   text-align: center;
-  line-height: 40px;
-  text-transform: capitalize;
+  font-size: 1rem;
   text-decoration: none;
 }
 
+.checkout-btn:hover,
+.place-order-btn:hover {
+  background: #0288d1;
+  color: #000;
+}
+
 .bill {
-  font-size: 60px;
-  font-weight: 500;
+  font-size: 2.5rem;
   margin: 10px 0;
 }

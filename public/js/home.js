@@ -37,7 +37,7 @@ const createProductCards = (data, title, ele, isProductPage = false) => {
   if (isProductPage) {
     container.innerHTML = `<h1 class="section-title">Similar Products</h1>`;
   } else {
-    container.innerHTML = `<h1 class="section-title">Search results for "${title}"</h1>`;
+    container.innerHTML = `<h1 class="section-title">search results for "${title}"</h1>`;
   }
 
   if (Array.isArray(data) && data.length > 0) {

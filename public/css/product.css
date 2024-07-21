@@ -6,37 +6,42 @@
 
 body {
   width: 100%;
-  background: url("../img/wooden_table.jpeg") no-repeat center center fixed;
-  background-size: cover;
   font-family: "Playwrite PE", cursive;
   padding-top: 100px;
 }
 
 .product-section {
   width: 100%;
-  margin-top: 120px;
-  padding: 0px 5vw;
+  padding: 20px 40px;
   display: flex;
   gap: 40px;
 }
 
 .product-image {
-  width: 50%;
-  height: 600px;
+  transition: transform 1s ease;
+  width: 40%;
+  height: 500px;
   object-fit: cover;
 }
 
+.product-image:hover {
+  transform: scale(1.05);
+}
+
 .product-title {
-  font-size: 3rem;
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.section-title {
+  margin-bottom: 0;
 }
 
 .product-des {
-  text-transform: capitalize;
-  margin: 30px 0;
-  font-family: "Playwrite PE", cursive;
-  opacity: 0.5;
-  font-size: 1.25rem;
-  line-height: 30px;
+  margin: 10px 0;
+  opacity: 0.8;
+  line-height: 2rem;
+  font-size: 1.1rem;
 }
 
 .rating {
@@ -50,75 +55,130 @@ body {
 }
 
 .rating-count {
-  font-family: "Playwrite PE", cursive;
-  opacity: 0.4;
-  font-size: 14px;
+  opacity: 0.5;
+  font-size: 1rem;
   line-height: 40px;
-  margin-left: 20px;
+  margin-left: 50px;
+}
+
+.ratings {
+  font-size: 1.25rem;
+  margin: 10px 0;
 }
 
 .price {
-  font-size: 1.5rem;
-  margin-bottom: 30px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.btn-container {
+  margin: 10px 0;
+  display: flex;
+  justify-content: flex-start;
+  width: 50%;
+  margin-left: 0;
 }
 
 .product-btn {
-  padding: 15px 40px;
+  padding: 10px 20px;
   border: none;
+  border-radius: 10px;
   color: white;
   outline: none;
-  margin-right: 10px;
-  font-size: 20px;
+  font-size: 1rem;
   cursor: pointer;
-  text-transform: capitalize;
 }
 
 .buy-btn {
-  background-color: #d5be8b;
+  background-color: #03a9f4;
+  margin-right: 50px;
+}
+
+.buy-btn:hover {
+  background: #0288d1;
+  color: #000;
 }
 
 .cart-btn {
-  background-color: #190c05;
+  background-color: #4fc3f7;
 }
 
-.product-container {
-  justify-content: initial;
+.cart-btn:hover {
+  background-color: #29b6f6;
+  color: #000;
 }
 
 .similar-products {
-  padding: 100px;
+  padding: 20px 40px;
+}
+
+.similar-products h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.product-container {
+  display: grid;
+  margin: 10px 0;
+  grid-template-columns: repeat(5, 250px);
+  gap: 10px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+  position: relative;
+  transition: box-shadow 0.3s ease;
+  border: 5px solid #d5be8b;
+  cursor: pointer;
+}
+
+.product-name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  top: 50%;
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .detail-des,
 .review-section,
 .add-review-section {
   width: 100%;
-  padding: 100px 100px 0 100px;
+  padding: 20px 40px;
 }
 
 .des {
-  font-family: "Playwrite PE", cursive;
-  line-height: 2rem;
-  font-size: 1.25rem;
-  opacity: 0.75;
+  font-size: 1rem;
+  opacity: 0.9;
+  margin: 10px 0;
 }
 
 .review-submit-container {
+  margin: 10px 0;
   display: flex;
   flex-direction: row;
-  font-size: 1.25rem;
+  font-size: 1rem;
   justify-content: space-between;
 }
 
 .review-headline,
 .review-field {
   width: 100%;
-  height: 40px;
-  border: 2px solid #c9c9c9;
+  height: 2rem;
   margin: 10px 0;
-  padding: 10px;
+  padding: 0 10px;
   line-height: 40px;
-  font-family: "Playwrite PE", cursive;
   color: black;
   outline: none;
   text-transform: capitalize;
@@ -130,36 +190,39 @@ body {
 }
 
 .review-field {
-  height: 160px;
+  height: 100px;
   resize: none;
   padding: 0 10px;
 }
 
-.review-headline:focus,
-.review-field:focus {
-  border-color: #d5be8b;
+.review-container {
+  margin: 10px 0;
 }
 
-.review-headline:focus,
-.review-field:focus::placeholder {
-  border-color: #d5be8b;
+.review-title {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+.review {
+  font-size: 0.9rem;
+  margin: 10px 0;
+  opacity: 0.8;
 }
 
 .error {
+  font-family: Arial, Helvetica, sans-serif;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 200px;
-  min-height: 100px;
-  background: white;
-  border-radius: 10px;
+  background: #f9f9f9;
+  border-radius: 5px;
   padding: 20px;
-  font-size: 1rem;
-  line-height: 1.2rem;
+  font-size: 0.9rem;
   z-index: 9;
   text-align: center;
-  text-transform: capitalize;
   color: #ff3737;
   opacity: 0;
   pointer-events: none;
@@ -171,22 +234,22 @@ body {
 }
 
 .add-review-btn {
-  border: none;
-  outline: none;
-  background: #d5be8b;
   padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #03a9f4;
   color: white;
-  font-family: "Playwrite PE", cursive;
-  font-size: 16px;
-  text-transform: capitalize;
+  font-size: 1rem;
   cursor: pointer;
 }
 
-.product-card {
-  border: 5px solid #d5be8b;
+.add-review-btn:hover {
+  background-color: #0288d1;
+  color: #000;
 }
 
-.product-card,
 .review-card {
-  margin-right: 40px;
+  margin-right: 10px;
+  flex-basis: initial;
+  padding: 0;
 }

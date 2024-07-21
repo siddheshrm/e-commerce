@@ -12,7 +12,6 @@ if (searchKey.toLowerCase() === "login.html") {
         ".search-listing"
       );
     } else {
-      // Handle the case where data is not an array
       createProductCards([], searchKey, ".search-listing"); // Pass an empty array
     }
   });

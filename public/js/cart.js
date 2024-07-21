@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
         <img src="${data.image}" class="sm-product-img" alt="">
         <div class="sm-text">
             <p class="sm-product-name">${data.name}</p>
-            <p class="sm-des">${data.shortDes}</p>
         </div>
         <div class="item-counter">
             <button class="counter-btn decrement">-</button>
@@ -37,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let cart = JSON.parse(localStorage.getItem("cart"));
     if (cart == null || !cart.length) {
-      cartContainer.innerHTML += `<img src="img/empty-cart.png" class="empty-img" alt="">`;
+      cartContainer.innerHTML += `<img src="img/empty_cart.jpg" class="empty-img" alt="empty-cart">`;
     } else {
       for (let i = 0; i < cart.length; i++) {
         cartContainer.innerHTML += createSmallCards(cart[i]);

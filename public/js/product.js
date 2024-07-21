@@ -43,7 +43,7 @@ const setData = (data) => {
 const fetchProductData = () => {
   const searchKey = decodeURI(location.pathname.split("/products/").pop());
   if (searchKey.toLowerCase() === "login.html") {
-    // Redirect to index.html
+    // Redirect to login.html
     window.location.href = "/login.html";
     return;
   }

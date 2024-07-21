@@ -6,9 +6,7 @@
 
 body {
   width: 100%;
-  background: url("../img/wooden_table.jpeg") no-repeat center center fixed;
-  background-size: cover;
-  font-family: "Playwrite PE", cursive;
+  background-color: #e3f2fd;
 }
 
 .form {
@@ -21,9 +19,9 @@ body {
 }
 
 .form-title {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #000000;
-  margin-bottom: 40px;
+  padding-bottom: 25px;
 }
 
 input,
@@ -32,28 +30,35 @@ textarea {
   width: 70%;
   border: 1px solid #cccccc;
   border-radius: 5px;
-  height: 50px;
-  font-size: 1rem;
   line-height: 1.5rem;
-  padding: 0 10px;
   margin: 10px 0;
   padding: 10px;
 }
 
 textarea {
-  height: 8rem;
+  height: 5rem;
   resize: none;
   outline: none;
 }
 
 .apply-btn {
-  width: auto;
-  padding: 10px;
-  font-size: 1.2rem;
-  background: #d5be8b;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #03a9f4;
   border: none;
   color: white;
-  margin-top: 20px;
   cursor: pointer;
-  font-family: "Playwrite PE", cursive;
+}
+
+.apply-btn:hover {
+  background: #0288d1;
+  color: #000;
+}
+
+.search::placeholder {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #3b5998;
+  font-size: 1rem;
+  text-transform: none;
 }

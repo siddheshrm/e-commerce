@@ -78,7 +78,7 @@ const createReviewSection = (data) => {
   let section = document.querySelector(".review-section");
 
   section.innerHTML += `
-        <h1 class="section-title">Reviews</h1>
+        <h1 class="section-title">Customer reviews</h1>
         <div class="review-container">
             ${createReviewCard(data)}
         </div>

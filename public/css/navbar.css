@@ -1,19 +1,18 @@
-/* Navbar styles */
 .navbar {
   width: 100%;
-  height: 100px;
+  height: 80px;
   position: fixed;
   top: 0;
   left: 0;
   display: flex;
-  padding-left: 300px;
+  padding-left: 100px;
   z-index: 9;
   transition: 0.5s;
 }
 
 .navbar.bg,
 .navbar.dark {
-  background: white;
+  background: linear-gradient(to top, #e3f2fd, #7a99c8);
 }
 
 .links-container {
@@ -44,7 +43,7 @@
 }
 
 .link {
-  font-size: 25px;
+  font-size: 1.25rem;
   color: #000;
   text-decoration: none;
   padding: 20px;
@@ -65,6 +64,16 @@
   opacity: 1;
 }
 
+.navbar.bg .search-btn {
+  background: #fff;
+}
+
+.fa-solid,
+.fas {
+  font-size: 1.25rem;
+  color: #3b5998;
+}
+
 .user-interactions {
   display: flex;
   position: absolute;
@@ -81,26 +90,28 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 50px;
   margin-right: 30px;
 }
 
 .search {
   width: 100%;
-  height: 50px;
-  border-radius: 15px;
+  height: 2rem;
+  border-radius: 1rem;
   background: none;
-  border: 2px solid #fff;
-  color: #fff;
+  border: 2px solid #3b5998;
+  color: #3b5998;
   padding: 15px;
   outline: none;
   text-align: center;
-  font-size: 18px;
+  font-size: 1rem;
+  font-family: none;
 }
 
 .search::placeholder {
-  color: #fff;
-  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #3b5998;
+  font-size: 1rem;
 }
 
 .navbar.bg .search,
@@ -112,8 +123,8 @@
 }
 
 .search-btn {
-  min-width: 50px;
-  height: 50px;
+  min-width: 2.5rem;
+  height: 2.5rem;
   border: none;
   background: #fff;
   border-radius: 50%;
@@ -138,8 +149,7 @@
 }
 
 .cart-item-count {
-  font-family: "Playwrite PE", cursive;
-  color: #d5be8b;
+  color: #fff;
   padding: 5px;
   font-size: 10px;
   border-radius: 50%;
@@ -169,6 +179,7 @@
   border-radius: 10px;
   padding: 10px;
   z-index: 10;
+  font-size: 0.8rem;
 }
 
 .user-icon-popup.active {
@@ -176,10 +187,9 @@
 }
 
 .user-icon-popup button.login-btn {
-  font-family: "Playwrite PE", cursive;
   display: block;
   width: 100%;
-  background: #ff004f;
+  background: #03a9f4;
   color: white;
   border: none;
   padding: 10px;
@@ -191,5 +201,6 @@
 }
 
 .user-icon-popup button.login-btn:hover {
-  background: #d00042;
+  background: #0288d1;
+  color: #000;
 }

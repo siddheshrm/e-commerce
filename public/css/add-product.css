@@ -5,9 +5,8 @@
 }
 
 body {
+  background-color: #e3f2fd;
   padding-top: 100px;
-  background: url("../img/wooden_table.jpeg") no-repeat center center fixed;
-  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,27 +24,22 @@ body {
 }
 
 .title {
-  font-size: 3rem;
-  line-height: 3rem;
-  margin-bottom: 30px;
-  color: #ffffff;
+  font-size: 1.5rem;
 }
 
 .error {
+  font-family: Arial, Helvetica, sans-serif;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 200px;
-  min-height: 100px;
-  background: white;
-  border-radius: 10px;
+  background: #f9f9f9;
+  border-radius: 5px;
   padding: 20px;
-  font-size: 1rem;
-  line-height: 1.2rem;
+  font-size: 0.9rem;
   z-index: 9;
   text-align: center;
-  text-transform: capitalize;
   color: #ff3737;
   opacity: 0;
   pointer-events: none;
@@ -57,18 +51,18 @@ body {
 }
 
 .product-section {
-  width: 100%;
-  max-width: 1200px;
-  margin: 50px auto 0;
+  width: 90%;
+  max-width: 1000px;
+  margin: 30px auto 0;
   display: flex;
   justify-content: space-between;
-  gap: 40px;
+  gap: 15px;
 }
 
 .image-upload-container {
-  width: 45%;
+  width: 35%;
   position: relative;
-  height: 500px;
+  height: 300px;
 }
 
 .upload-overlay {
@@ -82,7 +76,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 1rem;
   opacity: 0;
   transition: opacity 0.5s;
 }
@@ -99,10 +93,10 @@ body {
 }
 
 .product-detail {
-  width: 45%;
+  width: 60%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 .product-title,
@@ -111,9 +105,9 @@ body {
 .tags {
   outline: none;
   border: 2px solid #000000;
-  padding: 10px;
-  font-size: 16px;
-  line-height: 30px;
+  padding: 8px;
+  font-size: 14px;
+  line-height: 25px;
 }
 
 .product-title {
@@ -130,44 +124,55 @@ body {
 }
 
 .tags {
-  height: 100px;
+  height: 80px;
 }
 
 .detail-des {
-  width: 65%;
-  margin-top: 60px;
+  width: 60%;
+  margin-top: 30px;
 }
 
 .detail-des .des {
   outline: none;
   border: 2px solid #000000;
-  padding: 10px;
-  line-height: 32px;
-  height: 250px;
+  padding: 8px;
+  line-height: 1.5rem;
+  height: 150px;
   overflow-wrap: break-word;
   overflow: scroll;
   white-space: pre-wrap;
 }
 
 .btn-wrapper {
-  margin-top: 40px;
   display: flex;
   justify-content: space-around;
-  width: 45%;
+  width: 50%;
 }
 
 .product-btn {
-  padding: 15px 40px;
+  color: #fff;
+  margin: 20px 0;
+  padding: 10px 20px;
   border: none;
-  font-size: 20px;
+  border-radius: 10px;
+  font-size: 1rem;
   cursor: pointer;
-  text-transform: capitalize;
 }
 
 .add-product-btn {
-  background: #d5be8b;
+  background: #03a9f4;
+}
+
+.add-product-btn:hover {
+  background: #0288d1;
+  color: #000;
 }
 
 .draft-btn {
-  background-color: #cacaca;
+  background-color: #4fc3f7;
+}
+
+.draft-btn:hover {
+  background-color: #29b6f6;
+  color: #000;
 }

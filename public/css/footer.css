@@ -1,8 +1,7 @@
 footer {
-  font-family: "Playwrite PE", cursive;
-  color: #d5be8b;
+  font-family: "Roboto", sans-serif;
   width: 100%;
-  padding: 60px;
+  padding: 25px;
   background-color: #f8f8f8;
 }
 
@@ -22,7 +21,7 @@ footer {
 .footer-info {
   color: black;
   margin: 10px 0;
-  font-size: 1rem; /* 16px */
+  font-size: 1rem;
 }
 
 .footer-social-container {
@@ -48,7 +47,7 @@ footer {
 }
 
 .footer-link:hover {
-  color: #fff;
+  color: blue;
 }
 
 .social-link {
@@ -62,11 +61,11 @@ footer {
   margin-left: 0;
 }
 
-.social-link:hover {
-  color: #fff;
-}
-
 .fa-brands {
   font-size: 1.5rem;
   color: #000;
+}
+
+.fa-brands:hover {
+  color: #29b6f6;
 }
