@@ -46,7 +46,7 @@
   font-size: 1.25rem;
   color: #000;
   text-decoration: none;
-  padding: 20px;
+  padding: 25px;
   opacity: 0.7;
   transition: 0.5s;
 }
@@ -151,12 +151,12 @@
 .cart-item-count {
   color: #fff;
   padding: 5px;
-  font-size: 10px;
+  font-size: 0.75rem;
   border-radius: 50%;
   background: #190c05;
   position: absolute;
-  bottom: 10px;
-  left: 0px;
+  bottom: 15px;
+  left: 5px;
 }
 
 /* User icon styles */
@@ -168,6 +168,7 @@
 }
 
 .user-icon-popup {
+  line-height: 1.5rem;
   display: none;
   position: absolute;
   top: 40px;
@@ -179,7 +180,7 @@
   border-radius: 10px;
   padding: 10px;
   z-index: 10;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 .user-icon-popup.active {

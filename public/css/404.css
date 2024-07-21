@@ -12,13 +12,13 @@
 .error {
   text-align: center;
   font-size: 3rem;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .sub-line {
   font-size: 1.25rem;
   text-align: center;
-  font-family: "Playwrite PE", cursive;
+  font-family: "Allerta", sans-serif;
 }
 
 .sub-line a {
@@ -27,5 +27,5 @@
 }
 
 .sub-line a:hover {
-  text-decoration: underline;
+  color: blue;
 }

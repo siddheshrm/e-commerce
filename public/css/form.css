@@ -43,10 +43,6 @@ body {
   text-decoration: none;
 }
 
-.form a:hover {
-  text-decoration: underline;
-}
-
 .form-heading {
   font-size: 1.5rem;
   margin-bottom: 20px;
@@ -58,7 +54,6 @@ body {
 .form input[type="tel"] {
   margin: 10px 0;
   padding: 0 10px;
-  font-family: "Playwrite PE", cursive;
   border: 1px solid #b9b9b9;
   border-radius: 5px;
   outline: none;
@@ -66,6 +61,7 @@ body {
 }
 
 ::placeholder {
+  font-family: "Playwrite PE", cursive;
   color: #b9b9b9;
   text-transform: capitalize;
   font-size: 0.7rem;
@@ -102,7 +98,6 @@ body {
 
 .other-form-link {
   margin-top: 10px;
-  font-family: "Playwrite PE", cursive;
   color: #000;
   font-size: 1rem;
   text-decoration: none;

@@ -7,7 +7,6 @@
 body {
   width: 100%;
   background-color: #e3f2fd;
-  font-family: "Playwrite PE", cursive;
   padding-top: 100px;
   display: flex;
   flex-direction: column;
@@ -35,10 +34,9 @@ body {
   align-items: center;
   width: 250px;
   height: 250px;
-  border-radius: 10px;
   position: relative;
   transition: box-shadow 0.3s ease;
-  border: 5px solid #d5be8b;
+  border: 10px solid #d5be8b;
   cursor: pointer;
 }
 

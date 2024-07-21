@@ -13,9 +13,9 @@ const createNavbar = () => {
 
   navbar.innerHTML += `
     <ul class="links-container">            
-      <li class="link-item"><a href="${getHomeLink()}" class="link active"><b>home</b></a></li>
-      <li class="link-item"><a href="/seller.html" class="link"><b>seller</b></a></li>
-      <li class="link-item"><a href="#footer" class="link"><b>about us</b></a></li>
+      <li class="link-item"><a href="${getHomeLink()}" class="link active"><b>Home</b></a></li>
+      <li class="link-item"><a href="/seller.html" class="link"><b>Seller</b></a></li>
+      <li class="link-item"><a href="#footer" class="link"><b>About us</b></a></li>
     </ul>
         
     <div class="user-interactions">
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (user) {
       // User is logged in
-      text.innerHTML = `Hello, <b>${user.name}</b><br>Not you?`;
+      text.innerHTML = `Hello, <b>${user.name}</b>.<br>Not you?`;
       actionBtn.innerHTML = "Logout";
       actionBtn.removeEventListener("click", handleLoginClick);
       actionBtn.addEventListener("click", logout);
