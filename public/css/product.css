@@ -58,7 +58,7 @@ body {
   opacity: 0.5;
   font-size: 1rem;
   line-height: 40px;
-  margin-left: 50px;
+  margin-left: 25px;
 }
 
 .ratings {
@@ -170,6 +170,10 @@ body {
   flex-direction: row;
   font-size: 1rem;
   justify-content: space-between;
+}
+
+.star-container {
+  font-size: 1.25rem;
 }
 
 .review-headline,

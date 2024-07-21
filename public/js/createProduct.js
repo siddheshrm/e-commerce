@@ -13,9 +13,9 @@ const createProduct = (data, draft) => {
   let productContainer = document.querySelector(".product-container");
   productContainer.innerHTML += `
     <div class="product-card" data-id="${data.id}">
-        <button class="btn edit-btn" onclick="location.href = '/add-product/${data.id}'"><img src="img/edit.png" alt=""></button>
-        <button class="btn open-btn" onclick="openProduct('${data.id}', ${draft})"><img src="img/open.png" alt=""></button>
-        <button class="btn delete-btn" onclick="deleteItem('${data.id}')"><img src="img/delete.png" alt=""></button>
+        <button class="btn edit-btn" onclick="location.href = '/add-product/${data.id}'"><i class="fa-solid fa-pen-to-square"></i></i></button>
+        <button class="btn open-btn" onclick="openProduct('${data.id}', ${draft})"><i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+        <button class="btn delete-btn" onclick="deleteItem('${data.id}')"><i class="fa-solid fa-trash"></i></button>
         <img src="${data.image}" class="product-img" alt="">
         <p class="product-name">${data.name}</p>
     </div>

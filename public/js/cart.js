@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <p class="sm-price" data-price="${data.price}">₹${
       data.price * data.item
     }</p>
-        <button class="sm-delete-btn"><img src="img/close.png" alt=""></button>
+        <button class="sm-delete-btn"><i class="fa-solid fa-xmark"></i></button>
     </div>
     `;
   };

@@ -4,9 +4,11 @@ ratingStarInput.map((star, index) => {
   star.addEventListener("click", () => {
     for (let i = 0; i < 5; i++) {
       if (i <= index) {
-        ratingStarInput[i].src = `../img/fill star.png`;
+        ratingStarInput[i].classList.remove("fa-regular");
+        ratingStarInput[i].classList.add("fa-solid");
       } else {
-        ratingStarInput[i].src = `../img/no fill star.png`;
+        ratingStarInput[i].classList.remove("fa-solid");
+        ratingStarInput[i].classList.add("fa-regular");
       }
     }
   });
