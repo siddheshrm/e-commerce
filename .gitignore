@@ -1,7 +1,7 @@
 .env
 package.json
 package-lock.json
-product.txt
+miscellaneous.txt
 
 node_modules/
 .vs/

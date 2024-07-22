@@ -16,7 +16,7 @@ import {
 } from "firebase/firestore";
 import stripe from "stripe";
 
-// Your web app's Firebase configuration
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDFAF2XJkhQI6RhC6wzDjmckv7bkR5ncxE",
   authDomain: "online-ecommerce-website.firebaseapp.com",
@@ -30,19 +30,20 @@ const firebaseConfig = {
 const firebase = initializeApp(firebaseConfig);
 const db = getFirestore();
 
-//init server
+// Init server
 const app = express();
 
-//middlewares - to make public folder to static folder
+// Middlewares - to make public folder to static folder
 app.use(express.static("public"));
-//enables form sharing
+
+// Enable form sharing
 app.use(express.json());
 
-//aws
+// AWS
 import aws from "aws-sdk";
 import "dotenv/config";
 
-//aws setup
+// AWS setup
 const region = "ap-south-1";
 const bucketName = "furnituredotcom";
 const accessKeyId = process.env.AWS_ACCESS_KEY;
@@ -54,10 +55,10 @@ aws.config.update({
   secretAccessKey,
 });
 
-// init s3
+// Init s3
 const s3 = new aws.S3();
 
-// generate image url
+// Generate image url
 async function generateURL() {
   let date = new Date();
 
@@ -66,7 +67,7 @@ async function generateURL() {
   const params = {
     Bucket: bucketName,
     Key: imageName,
-    Expires: 300, // 300 ms
+    Expires: 300,
     ContentType: "image/jpeg",
   };
 
@@ -78,13 +79,13 @@ app.get("/s3url", (req, res) => {
   generateURL().then((url) => res.json(url));
 });
 
-// routes
-// home route
+// Routes
+// Home route
 app.get("/", (req, res) => {
   res.sendFile("index.html", { root: "public" });
 });
 
-// signup
+// Signup route
 app.get("/signup", (req, res) => {
   res.sendFile("signup.html", { root: "public" });
 });
@@ -112,13 +113,13 @@ app.post("/signup", (req, res) => {
           alert: "Email already exists, please use different email to signup.",
         });
       } else {
-        // encrypt the password
+        // Encrypt the password
         bcrypt.genSalt(10, (err, salt) => {
           bcrypt.hash(password, salt, (err, hash) => {
             req.body.password = hash;
             req.body.seller = false;
 
-            // set the doc
+            // Set the doc
             setDoc(doc(users, email), req.body).then((data) => {
               res.json({
                 name: req.body.name,
@@ -133,6 +134,7 @@ app.post("/signup", (req, res) => {
   }
 });
 
+// Login route
 app.get("/login", (req, res) => {
   res.sendFile("login.html", { root: "public" });
 });
@@ -166,7 +168,7 @@ app.post("/login", (req, res) => {
   });
 });
 
-// seller route
+// Seller route
 app.get("/seller", (req, res) => {
   res.sendFile("seller.html", { root: "public" });
 });
@@ -183,7 +185,7 @@ app.post("/seller", (req, res) => {
   ) {
     return res.json({ alert: "some information(s) is/are incorrect" });
   } else {
-    // update the seller status
+    // Update the seller status
     const sellers = collection(db, "sellers");
     setDoc(doc(sellers, email), req.body).then((data) => {
       const users = collection(db, "users");
@@ -196,17 +198,17 @@ app.post("/seller", (req, res) => {
   }
 });
 
-// dashboard
+// Dashboard route
 app.get("/dashboard", (req, res) => {
   res.sendFile("dashboard.html", { root: "public" });
 });
 
-// add product
+// Add product route
 app.get("/add-product", (req, res) => {
   res.sendFile("add-product.html", { root: "public" });
 });
 
-// edit product
+// Edit product route
 app.get("/add-product/:id", (req, res) => {
   res.sendFile("add-product.html", { root: "public" });
 });
@@ -229,7 +231,6 @@ app.post("/add-product", (req, res) => {
     }
   }
 
-  // add or edit product
   let docName =
     id == undefined
       ? `${name.toLowerCase()}-${Math.floor(Math.random() * 50000)}`
@@ -279,6 +280,7 @@ app.post("/get-products", (req, res) => {
   });
 });
 
+// Delete route
 app.post("/delete-product", (req, res) => {
   let { id } = req.body;
 
@@ -287,26 +289,25 @@ app.post("/delete-product", (req, res) => {
       res.json("success");
     })
     .catch((err) => {
-      // console.error("Error deleting product:", err);
       res.json("error");
     });
 });
 
-// product page route by id
+// Product page route by id
 app.get("/products/:id", (req, res) => {
   res.sendFile("product.html", { root: "public" });
 });
 
-// serach route
+// Serach route
 app.get("/search/:key", (req, res) => {
   res.sendFile("search.html", { root: "public" });
 });
 
-// review routes
+// Review route
 app.post("/add-review", (req, res) => {
   let { headline, review, rate, email, product } = req.body;
 
-  // form validations
+  // Form validations
   if (
     !headline.length ||
     !review.length ||
@@ -317,7 +318,7 @@ app.post("/add-review", (req, res) => {
     return res.json({ alert: "Fill all the inputs" });
   }
 
-  // storing in Firestore
+  // Storing in Firestore
   let reviews = collection(db, "reviews");
   let docName = `review-${email}-${product}`;
 
@@ -364,10 +365,12 @@ app.post("/get-reviews", (req, res) => {
   );
 });
 
+// Cart route
 app.get("/cart", (req, res) => {
   res.sendFile("cart.html", { root: "public" });
 });
 
+// Checkout route
 app.get("/checkout", (req, res) => {
   res.sendFile("checkout.html", { root: "public" });
 });
@@ -403,7 +406,7 @@ app.post("/stripe-checkout", async (req, res) => {
   res.json(session.url);
 });
 
-//success route
+// Payment success route
 app.get("/success", async (req, res) => {
   let { order, session_id } = req.query;
 
@@ -411,7 +414,6 @@ app.get("/success", async (req, res) => {
     const session = await stripeGateway.checkout.sessions.retrieve(session_id);
     const customer = await stripeGateway.customers.retrieve(session.customer);
 
-    // console.log(customer);
     let date = new Date();
 
     let order_collection = collection(db, "orders");

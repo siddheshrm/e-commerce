@@ -46,7 +46,7 @@ body {
 .product-container {
   display: grid;
   grid-template-columns: repeat(5, 250px);
-  gap: 10px;
+  gap: 20px;
   padding: 25px;
   justify-content: space-around;
 }

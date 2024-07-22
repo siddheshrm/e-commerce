@@ -14,14 +14,14 @@ window.onload = () => {
   }
 };
 
-//select place order button
+// Select place order button
 const placeOrderBtn = document.querySelector(".place-order-btn");
 
 placeOrderBtn.addEventListener("click", () => {
   let address = getAddress();
 
   if (address.address.length) {
-    //send data to backend
+    // Send data to backend
     fetch("/stripe-checkout", {
       method: "post",
       headers: new Headers({ "Content-Type": "application/json" }),
@@ -40,7 +40,7 @@ placeOrderBtn.addEventListener("click", () => {
 });
 
 const getAddress = () => {
-  //form validation
+  // Form validation
   let address = document.querySelector("#address").value;
   let street = document.querySelector("#street").value;
   let city = document.querySelector("#city").value;

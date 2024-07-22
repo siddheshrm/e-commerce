@@ -30,9 +30,8 @@ formBtn.addEventListener("click", () => {
       showFormError("Please enter a valid 10-digit mobile number.");
     } else if (!tac.checked) {
       showFormError("Please agree to our terms and conditions.");
-      // return;
     } else {
-      //Send data
+      // Send data
       loader.style.display = "block";
       sendData("/signup", {
         name: fullname.value,
@@ -43,7 +42,7 @@ formBtn.addEventListener("click", () => {
       });
     }
   } else {
-    //Login page
+    // Login page
     if (!email.value.length || !password.value.length) {
       showFormError("Fill all the required inputs");
     } else {

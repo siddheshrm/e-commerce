@@ -1,4 +1,4 @@
-// image collage
+// Image collage
 const collageImages = [...document.querySelectorAll(".collage-img")];
 
 collageImages.map((item, i) => {
@@ -18,7 +18,7 @@ collageImages.map((item, i) => {
   });
 });
 
-// get product functions
+// Get product functions
 productId = null;
 const getProducts = (tag) => {
   return fetch("/get-products", {
@@ -68,7 +68,7 @@ const createCards = (data) => {
   return cards;
 };
 
-//cart function
+// Cart function
 const addProductToCart = (product) => {
   updateNavCartCounter();
   let cart = JSON.parse(localStorage.getItem("cart"));

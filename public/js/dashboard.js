@@ -9,7 +9,6 @@ if (!user) {
 let greeting = document.querySelector("#seller-greeting");
 greeting.innerHTML += user.name;
 
-// loader
 let loader = document.querySelector(".loader");
 let noProductMessage = document.querySelector(".no-product-message");
 
@@ -32,7 +31,6 @@ const setupProducts = () => {
     })
     .catch((error) => {
       loader.style.display = "none";
-      // console.error("Error fetching products:", error);
       noProductMessage.textContent =
         "An error occurred while fetching products.";
       noProductMessage.classList.add("active");

@@ -16,16 +16,16 @@ ratingStarInput.map((star, index) => {
   });
 });
 
-// add review form
+// Add review form
 let reviewHeadline = document.querySelector(".review-headline");
 let review = document.querySelector(".review-field");
 let loader = document.querySelector(".loader");
 let addReviewBtn = document.querySelector(".add-review-btn");
 
 addReviewBtn.addEventListener("click", () => {
-  // form validation
+  //  Form validation
   if (user.email == undefined) {
-    // user is not logged in
+    // User not logged in
     alert("Please log in to add a review. Redirecting to the login page.");
     location.href = `/login?after_page=${productId}`;
   } else {
@@ -39,7 +39,7 @@ addReviewBtn.addEventListener("click", () => {
     } else if (review.value.length < 50 || review.value.length > 500) {
       showFormError("Review should be between 50 and 500 characters");
     } else {
-      // send the data to backend
+      // Send the data to backend
       loader.style.display = "block";
       sendData("/add-review", {
         headline: reviewHeadline.value,

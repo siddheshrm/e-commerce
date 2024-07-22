@@ -48,7 +48,6 @@ const deleteItem = (id) => {
         }
       })
       .catch((error) => {
-        // console.error("Error deleting product:", error);
         showAlert("An error occurred while deleting the product.");
       });
   }
