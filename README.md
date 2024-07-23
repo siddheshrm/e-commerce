@@ -7,7 +7,14 @@ This project, a basic online e-commerce website was developed as part of my CDAC
 - Front-end: HTML, CSS, JavaScript
 - Back-end: Node.js
 - Database: Google Firebase (NoSQL)
-- Payment Gateway: Stripe (demo)
+- Payment Gateway: Stripe (Test mode)
+
+## Installation
+
+1. Clone the repository and navigate to the project directory.
+2. Install npm and other required dependencies listed below.
+3. Start the development server using: `nodemon server.js`.
+4. Access the application locally at `http://localhost:3000/index.html`.
 
 ## Dependencies
 
@@ -25,13 +32,6 @@ This project, a basic online e-commerce website was developed as part of my CDAC
 1. The project does not focus on making the site fully responsive.
 2. The project is not intended for real-life use.
 3. Please do not enter sensitive information, such as credit card details, CVV, personal details, etc.
-
-## Installation
-
-1. Clone the repository and navigate to the project directory.
-2. Install required dependenices.
-3. Start the development server: `nodemon server.js`.
-4. Access the application locally at `http://localhost:3000/index.html`.
 
 ## Usage
 
