@@ -54,3 +54,24 @@ formBtn.addEventListener("click", () => {
     }
   }
 });
+
+const passwordField = document.getElementById("password");
+const togglePassword = document.getElementById("togglePassword");
+
+togglePassword.addEventListener("click", function () {
+  "text";
+  const type =
+    passwordField.getAttribute("type") === "password" ? "text" : "password";
+  passwordField.setAttribute("type", type);
+
+  const iconEyeSlash = this.querySelector(".fa-eye-slash");
+  const iconEye = this.querySelector(".fa-eye");
+
+  if (type === "text") {
+    iconEye.style.display = "inline";
+    iconEyeSlash.style.display = "none";
+  } else {
+    iconEye.style.display = "none";
+    iconEyeSlash.style.display = "inline";
+  }
+});

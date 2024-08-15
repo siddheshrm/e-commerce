@@ -116,3 +116,38 @@ body {
 .tc-text {
   text-align: center;
 }
+
+.password-container {
+  position: relative;
+}
+
+#password {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  color: #000;
+}
+
+.eye-icon .fa-eye {
+  display: none;
+}
+
+.eye-icon.show-password .fa-eye {
+  display: inline;
+}
+
+.eye-icon .fa-eye-slash {
+  display: inline;
+}
+
+.eye-icon.show-password .fa-eye-slash {
+  display: none;
+}
