@@ -7,7 +7,7 @@ window.onload = () => {
   }
 };
 
-// Signup form
+// Signup and Login form validations
 let formBtn = document.querySelector(".submit-btn");
 let loader = document.querySelector(".loader");
 
@@ -16,44 +16,72 @@ formBtn.addEventListener("click", () => {
   let email = document.querySelector("#email");
   let password = document.querySelector("#password");
   let number = document.querySelector("#number");
-  let tac = document.querySelector("#tc") || null;
+  let tac = document.querySelector("#tc");
+
+  clearFormErrors();
 
   // Signup form validations
   if (fullname !== null) {
-    if (fullname.length < 5) {
+    if (fullname.value.length < 5) {
       showFormError("Name must be at least 5 characters long.");
-    } else if (!email) {
+      return;
+    }
+    if (!validateEmail(email.value)) {
       showFormError("Please enter a valid email.");
-    } else if (password.length < 8) {
-      showFormError("Password must be at least 8 characters long.");
-    } else if (number.value.length !== 10 || !/^\d{10}$/.test(number.value)) {
+      return;
+    }
+    if (number.value.length !== 10 || !/^\d{10}$/.test(number.value)) {
       showFormError("Please enter a valid 10-digit mobile number.");
-    } else if (!tac.checked) {
+      return;
+    }
+    if (password.value.length < 8) {
+      showFormError("Password must be at least 8 characters long.");
+      return;
+    }
+    if (!tac.checked) {
       showFormError("Please agree to our terms and conditions.");
-    } else {
-      // Send data
-      loader.style.display = "block";
-      sendData("/signup", {
-        name: fullname.value,
-        email: email.value,
-        password: password.value,
-        number: number.value,
-        tac: tac.checked,
-      });
+      return;
     }
+    // All validations passed, proceed with signup form submission
+    loader.style.display = "block";
+    sendData("/signup", {
+      name: fullname.value,
+      email: email.value,
+      password: password.value,
+      number: number.value,
+      tac: tac.checked,
+    });
   } else {
-    // Login page
-    if (!email.value.length || !password.value.length) {
-      showFormError("Fill all the required inputs");
-    } else {
-      loader.style.display = "block";
-      sendData("/login", {
-        email: email.value,
-        password: password.value,
-      });
+    // Login form validation
+    if (!email.value.length) {
+      showFormError("Please enter your email.");
+      return;
     }
+    if (!password.value.length) {
+      showFormError("Please enter your password.");
+      return;
+    }
+    // All validations passed, proceed with login form submission
+    loader.style.display = "block";
+    sendData("/login", {
+      email: email.value,
+      password: password.value,
+    });
   }
 });
+
+function clearFormErrors() {
+  let errorElement = document.querySelector(".error");
+  if (errorElement) {
+    errorElement.innerHTML = "";
+    errorElement.classList.remove("show");
+  }
+}
+
+function validateEmail(email) {
+  const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  return re.test(String(email).toLowerCase());
+}
 
 const passwordField = document.getElementById("password");
 const togglePassword = document.getElementById("togglePassword");
