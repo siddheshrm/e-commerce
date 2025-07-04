@@ -1,6 +1,6 @@
 # About Project
 
-This project, a basic online e-commerce website was developed as part of my CDAC coursework. It features a user-friendly design to ensure ease of use, with a simple and intuitive interface.
+This project, a basic online e-commerce website was developed as part of CDAC coursework. It features a user-friendly design to ensure ease of use, with a simple and intuitive interface.
 
 ## Technologies Used
 
@@ -46,7 +46,7 @@ This project, a basic online e-commerce website was developed as part of my CDAC
 
 ## About Me
 
-You can learn more about me and explore my other projects on my [personal portfolio website](https://siddheshmestri.online).
+You can learn more about me and explore my other projects on my [personal portfolio website](https://siddheshmestri.in).
 
 ## Screenshots
 
